@@ -1,0 +1,12 @@
+{
+    "cloudApp": {
+        "InstituteType" : {
+            "null": "",
+            "UNIVERSITY": "UNIVERSITY",
+            "ENGINEERING_COLLEGE": "ENGINEERING_COLLEGE",
+            "MEDICAL_COLLEGE": "MEDICAL_COLLEGE",
+            "INSTITUTE": "INSTITUTE",
+            "COLLEGE": "COLLEGE"
+        }
+    }
+}

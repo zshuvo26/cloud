@@ -1,0 +1,106 @@
+<div>
+    <h2 data-translate="cloudApp.employee.home.title">Employees</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="employee-my-suffix.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="cloudApp.employee.home.createLabel">
+                        Create new Employee
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="firstName"><span data-translate="cloudApp.employee.firstName">First Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="lastName"><span data-translate="cloudApp.employee.lastName">Last Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="employeeId"><span data-translate="cloudApp.employee.employeeId">Employee Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="email"><span data-translate="cloudApp.employee.email">Email</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="phoneNumber"><span data-translate="cloudApp.employee.phoneNumber">Phone Number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="photo"><span data-translate="cloudApp.employee.photo">Photo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="photoType"><span data-translate="cloudApp.employee.photoType">Photo Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="photoName"><span data-translate="cloudApp.employee.photoName">Photo Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="signature"><span data-translate="cloudApp.employee.signature">Signature</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="signatureType"><span data-translate="cloudApp.employee.signatureType">Signature Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="signatureName"><span data-translate="cloudApp.employee.signatureName">Signature Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="dob"><span data-translate="cloudApp.employee.dob">Dob</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nid"><span data-translate="cloudApp.employee.nid">Nid</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="gender"><span data-translate="cloudApp.employee.gender">Gender</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="employeeType"><span data-translate="cloudApp.employee.employeeType">Employee Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="departmentId"><span data-translate="cloudApp.employee.department">Department</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="designationId"><span data-translate="cloudApp.employee.designation">Designation</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="userId"><span data-translate="cloudApp.employee.user">User</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in vm.employees track by employee.id">
+                    <td><a ui-sref="employee-my-suffix-detail({id:employee.id})">{{employee.id}}</a></td>
+                    <td>{{employee.firstName}}</td>
+                    <td>{{employee.lastName}}</td>
+                    <td>{{employee.employeeId}}</td>
+                    <td>{{employee.email}}</td>
+                    <td>{{employee.phoneNumber}}</td>
+                    <td>
+                        <a ng-if="employee.photo" ng-click="vm.openFile(employee.photoContentType, employee.photo)" data-translate="entity.action.open">open</a>
+                        <span ng-if="employee.photo">{{employee.photoContentType}}, {{vm.byteSize(employee.photo)}}</span>
+                    </td>
+                    <td>{{employee.photoType}}</td>
+                    <td>{{employee.photoName}}</td>
+                    <td>
+                        <a ng-if="employee.signature" ng-click="vm.openFile(employee.signatureContentType, employee.signature)" data-translate="entity.action.open">open</a>
+                        <span ng-if="employee.signature">{{employee.signatureContentType}}, {{vm.byteSize(employee.signature)}}</span>
+                    </td>
+                    <td>{{employee.signatureType}}</td>
+                    <td>{{employee.signatureName}}</td>
+                        <td>{{employee.dob | date:'mediumDate'}}</td>
+                    <td>{{employee.nid}}</td>
+                    <td data-translate="{{'cloudApp.Gender.' + employee.gender}}">{{employee.gender}}</td>
+                    <td data-translate="{{'cloudApp.EmployeeType.' + employee.employeeType}}">{{employee.employeeType}}</td>
+                    <td>
+                        <a ui-sref="department-my-suffix-detail({id:employee.departmentId})">{{employee.departmentId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="designation-my-suffix-detail({id:employee.designationId})">{{employee.designationId}}</a>
+                    </td>
+                    <td>
+                        {{employee.userId}}
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="employee-my-suffix-detail({id:employee.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="employee-my-suffix.edit({id:employee.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="employee-my-suffix.delete({id:employee.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

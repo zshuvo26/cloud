@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span data-translate="cloudApp.upazila.detail.title">Upazila</span> {{vm.upazila.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cloudApp.upazila.name" uib-tooltip="{{'cloudApp.upazila.help.name' | translate}}">Name</span></dt>
+        <dd>
+            <span>{{vm.upazila.name}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.upazila.estdDate">Estd Date</span></dt>
+        <dd>
+            <span>{{vm.upazila.estdDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.upazila.district">District</span></dt>
+        <dd>
+            <a ui-sref="district-my-suffix-detail({id:vm.upazila.districtId})">{{vm.upazila.districtId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="upazila-my-suffix-detail.edit({id:vm.upazila.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

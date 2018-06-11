@@ -1,0 +1,208 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myStudentLabel" data-translate="cloudApp.student.home.createOrEditLabel">Create or edit a Student</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.student.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.student.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.student.firstName" for="field_firstName">First Name</label>
+            <input type="text" class="form-control" name="firstName" id="field_firstName"
+                    ng-model="vm.student.firstName"
+                    required/>
+            <div ng-show="editForm.firstName.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.firstName.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.student.lastName" for="field_lastName">Last Name</label>
+            <input type="text" class="form-control" name="lastName" id="field_lastName"
+                    ng-model="vm.student.lastName"
+                    required/>
+            <div ng-show="editForm.lastName.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.lastName.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.student.fatherName" for="field_fatherName">Father Name</label>
+            <input type="text" class="form-control" name="fatherName" id="field_fatherName"
+                    ng-model="vm.student.fatherName"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.student.motherName" for="field_motherName">Mother Name</label>
+            <input type="text" class="form-control" name="motherName" id="field_motherName"
+                    ng-model="vm.student.motherName"
+                    required/>
+            <div ng-show="editForm.motherName.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.motherName.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.student.studentId" for="field_studentId">Student Id</label>
+            <input type="text" class="form-control" name="studentId" id="field_studentId"
+                    ng-model="vm.student.studentId"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.student.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                    ng-model="vm.student.email"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.student.phoneNumber" for="field_phoneNumber">Phone Number</label>
+            <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                    ng-model="vm.student.phoneNumber"
+                    />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setPhoto($file, vm.student)">
+            <label class="control-label" data-translate="cloudApp.student.photo" for="field_photo">Photo</label>
+            <div>
+                <div ng-if="vm.student.photo" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.student.photoContentType, vm.student.photo)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.student.photoContentType}}, {{vm.byteSize(vm.student.photo)}}</span>
+                    <button type="button" ng-click="vm.student.photo=null;vm.student.photoContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setPhoto($file, vm.student)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="photo" id="field_photo"
+                    ng-model="vm.student.photo"
+                    />
+            <input type="hidden" class="form-control" name="photoContentType" id="field_photoContentType"
+                    ng-model="vm.student.photoContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.student.photoType" for="field_photoType">Photo Type</label>
+            <input type="text" class="form-control" name="photoType" id="field_photoType"
+                    ng-model="vm.student.photoType"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.student.photoName" for="field_photoName">Photo Name</label>
+            <input type="text" class="form-control" name="photoName" id="field_photoName"
+                    ng-model="vm.student.photoName"
+                    />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setSignature($file, vm.student)">
+            <label class="control-label" data-translate="cloudApp.student.signature" for="field_signature">Signature</label>
+            <div>
+                <div ng-if="vm.student.signature" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.student.signatureContentType, vm.student.signature)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.student.signatureContentType}}, {{vm.byteSize(vm.student.signature)}}</span>
+                    <button type="button" ng-click="vm.student.signature=null;vm.student.signatureContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setSignature($file, vm.student)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="signature" id="field_signature"
+                    ng-model="vm.student.signature"
+                    />
+            <input type="hidden" class="form-control" name="signatureContentType" id="field_signatureContentType"
+                    ng-model="vm.student.signatureContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.student.signatureType" for="field_signatureType">Signature Type</label>
+            <input type="text" class="form-control" name="signatureType" id="field_signatureType"
+                    ng-model="vm.student.signatureType"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.student.signatureName" for="field_signatureName">Signature Name</label>
+            <input type="text" class="form-control" name="signatureName" id="field_signatureName"
+                    ng-model="vm.student.signatureName"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.student.dob" for="field_dob">Dob</label>
+                <div class="input-group">
+                    <input id="field_dob" type="text" class="form-control" name="dob" uib-datepicker-popup="{{dateformat}}" ng-model="vm.student.dob" is-open="vm.datePickerOpenStatus.dob"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('dob')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.student.nid" for="field_nid">Nid</label>
+            <input type="text" class="form-control" name="nid" id="field_nid"
+                    ng-model="vm.student.nid"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.student.birthCertNo" for="field_birthCertNo">Birth Cert No</label>
+            <input type="text" class="form-control" name="birthCertNo" id="field_birthCertNo"
+                    ng-model="vm.student.birthCertNo"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.student.gender" for="field_gender">Gender</label>
+            <select class="form-control" name="gender" ng-model="vm.student.gender" id="field_gender">
+                <option value="MALE" data-translate="cloudApp.Gender.MALE">MALE</option>
+                <option value="FEMALE" data-translate="cloudApp.Gender.FEMALE">FEMALE</option>
+                <option value="OTHERS" data-translate="cloudApp.Gender.OTHERS">OTHERS</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="cloudApp.student.upazila" for="field_upazila">Upazila</label>
+            <select class="form-control" id="field_upazila" name="upazila" ng-model="vm.student.upazilaId" ng-options="upazila.id as upazila.id for upazila in vm.upazilas"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="cloudApp.student.department" for="field_department">Department</label>
+            <select class="form-control" id="field_department" name="department" ng-model="vm.student.departmentId" ng-options="department.id as department.id for department in vm.departments"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="cloudApp.student.session" for="field_session">Session</label>
+            <select class="form-control" id="field_session" name="session" ng-model="vm.student.sessionId" ng-options="session.id as session.id for session in vm.sessions"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="cloudApp.student.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" ng-model="vm.student.userId" ng-options="user.id as user.id for user in vm.users"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

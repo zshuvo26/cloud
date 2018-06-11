@@ -1,0 +1,39 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "division",
+            "otherEntityName": "division",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "javadoc": "Another side of the same relationship",
+            "relationshipName": "upazila",
+            "otherEntityName": "upazila",
+            "otherEntityRelationshipName": "district"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "estdDate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20180608054529",
+    "javadoc": "Task entity.\n@author The JHipster team.",
+    "entityTableName": "district",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

@@ -42,7 +42,7 @@ spring:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:mysql://localhost:3306/cloud?useUnicode=true&characterEncoding=utf8&useSSL=false
         username: root
-        password:
+        password: zshuvo26
         hikari:
             data-source-properties:
                 cachePrepStmts: true
@@ -62,8 +62,8 @@ spring:
     mail:
         host: localhost
         port: 25
-        username:
-        password:
+        username: root
+        password: zshuvo26
     messages:
         cache-seconds: 1
     thymeleaf:

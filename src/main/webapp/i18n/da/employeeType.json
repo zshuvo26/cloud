@@ -1,0 +1,9 @@
+{
+    "cloudApp": {
+        "EmployeeType" : {
+            "null": "",
+            "TEACHER": "TEACHER",
+            "STAFF": "STAFF"
+        }
+    }
+}

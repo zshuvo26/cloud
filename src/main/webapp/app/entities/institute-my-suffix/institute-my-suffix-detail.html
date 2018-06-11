@@ -1,0 +1,55 @@
+
+<div>
+    <h2><span data-translate="cloudApp.institute.detail.title">Institute</span> {{vm.institute.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cloudApp.institute.name">Name</span></dt>
+        <dd>
+            <span>{{vm.institute.name}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.institute.estdDate">Estd Date</span></dt>
+        <dd>
+            <span>{{vm.institute.estdDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.institute.email">Email</span></dt>
+        <dd>
+            <span>{{vm.institute.email}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.institute.website">Website</span></dt>
+        <dd>
+            <span>{{vm.institute.website}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.institute.contactNo">Contact No</span></dt>
+        <dd>
+            <span>{{vm.institute.contactNo}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.institute.instituteType">Institute Type</span></dt>
+        <dd>
+            <span data-translate="{{'cloudApp.InstituteType.' + vm.institute.instituteType}}">{{vm.institute.instituteType}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.institute.upazila">Upazila</span></dt>
+        <dd>
+            <a ui-sref="upazila-my-suffix-detail({id:vm.institute.upazilaId})">{{vm.institute.upazilaId}}</a>
+        </dd>
+        <dt><span data-translate="cloudApp.institute.city">City</span></dt>
+        <dd>
+            <a ui-sref="city-my-suffix-detail({id:vm.institute.cityId})">{{vm.institute.cityId}}</a>
+        </dd>
+        <dt><span data-translate="cloudApp.institute.user">User</span></dt>
+        <dd>
+            {{vm.institute.userId}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="institute-my-suffix-detail.edit({id:vm.institute.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

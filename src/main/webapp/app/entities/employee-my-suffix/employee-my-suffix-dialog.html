@@ -1,0 +1,185 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myEmployeeLabel" data-translate="cloudApp.employee.home.createOrEditLabel">Create or edit a Employee</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.employee.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.employee.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.employee.firstName" for="field_firstName">First Name</label>
+            <input type="text" class="form-control" name="firstName" id="field_firstName"
+                    ng-model="vm.employee.firstName"
+                    required/>
+            <div ng-show="editForm.firstName.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.firstName.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.employee.lastName" for="field_lastName">Last Name</label>
+            <input type="text" class="form-control" name="lastName" id="field_lastName"
+                    ng-model="vm.employee.lastName"
+                    required/>
+            <div ng-show="editForm.lastName.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.lastName.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.employee.employeeId" for="field_employeeId">Employee Id</label>
+            <input type="text" class="form-control" name="employeeId" id="field_employeeId"
+                    ng-model="vm.employee.employeeId"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.employee.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                    ng-model="vm.employee.email"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.employee.phoneNumber" for="field_phoneNumber">Phone Number</label>
+            <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                    ng-model="vm.employee.phoneNumber"
+                    />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setPhoto($file, vm.employee)">
+            <label class="control-label" data-translate="cloudApp.employee.photo" for="field_photo">Photo</label>
+            <div>
+                <div ng-if="vm.employee.photo" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.employee.photoContentType, vm.employee.photo)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.employee.photoContentType}}, {{vm.byteSize(vm.employee.photo)}}</span>
+                    <button type="button" ng-click="vm.employee.photo=null;vm.employee.photoContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setPhoto($file, vm.employee)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="photo" id="field_photo"
+                    ng-model="vm.employee.photo"
+                    />
+            <input type="hidden" class="form-control" name="photoContentType" id="field_photoContentType"
+                    ng-model="vm.employee.photoContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.employee.photoType" for="field_photoType">Photo Type</label>
+            <input type="text" class="form-control" name="photoType" id="field_photoType"
+                    ng-model="vm.employee.photoType"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.employee.photoName" for="field_photoName">Photo Name</label>
+            <input type="text" class="form-control" name="photoName" id="field_photoName"
+                    ng-model="vm.employee.photoName"
+                    />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setSignature($file, vm.employee)">
+            <label class="control-label" data-translate="cloudApp.employee.signature" for="field_signature">Signature</label>
+            <div>
+                <div ng-if="vm.employee.signature" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.employee.signatureContentType, vm.employee.signature)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.employee.signatureContentType}}, {{vm.byteSize(vm.employee.signature)}}</span>
+                    <button type="button" ng-click="vm.employee.signature=null;vm.employee.signatureContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setSignature($file, vm.employee)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="signature" id="field_signature"
+                    ng-model="vm.employee.signature"
+                    />
+            <input type="hidden" class="form-control" name="signatureContentType" id="field_signatureContentType"
+                    ng-model="vm.employee.signatureContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.employee.signatureType" for="field_signatureType">Signature Type</label>
+            <input type="text" class="form-control" name="signatureType" id="field_signatureType"
+                    ng-model="vm.employee.signatureType"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.employee.signatureName" for="field_signatureName">Signature Name</label>
+            <input type="text" class="form-control" name="signatureName" id="field_signatureName"
+                    ng-model="vm.employee.signatureName"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.employee.dob" for="field_dob">Dob</label>
+                <div class="input-group">
+                    <input id="field_dob" type="text" class="form-control" name="dob" uib-datepicker-popup="{{dateformat}}" ng-model="vm.employee.dob" is-open="vm.datePickerOpenStatus.dob"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('dob')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.employee.nid" for="field_nid">Nid</label>
+            <input type="text" class="form-control" name="nid" id="field_nid"
+                    ng-model="vm.employee.nid"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.employee.gender" for="field_gender">Gender</label>
+            <select class="form-control" name="gender" ng-model="vm.employee.gender" id="field_gender">
+                <option value="MALE" data-translate="cloudApp.Gender.MALE">MALE</option>
+                <option value="FEMALE" data-translate="cloudApp.Gender.FEMALE">FEMALE</option>
+                <option value="OTHERS" data-translate="cloudApp.Gender.OTHERS">OTHERS</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.employee.employeeType" for="field_employeeType">Employee Type</label>
+            <select class="form-control" name="employeeType" ng-model="vm.employee.employeeType" id="field_employeeType">
+                <option value="TEACHER" data-translate="cloudApp.EmployeeType.TEACHER">TEACHER</option>
+                <option value="STAFF" data-translate="cloudApp.EmployeeType.STAFF">STAFF</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="cloudApp.employee.department" for="field_department">Department</label>
+            <select class="form-control" id="field_department" name="department" ng-model="vm.employee.departmentId" ng-options="department.id as department.id for department in vm.departments"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="cloudApp.employee.designation" for="field_designation">Designation</label>
+            <select class="form-control" id="field_designation" name="designation" ng-model="vm.employee.designationId" ng-options="designation.id as designation.id for designation in vm.designations"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="cloudApp.employee.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" ng-model="vm.employee.userId" ng-options="user.id as user.id for user in vm.users"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

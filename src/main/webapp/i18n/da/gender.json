@@ -1,0 +1,10 @@
+{
+    "cloudApp": {
+        "Gender" : {
+            "null": "",
+            "MALE": "MALE",
+            "FEMALE": "FEMALE",
+            "OTHERS": "OTHERS"
+        }
+    }
+}

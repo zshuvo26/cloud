@@ -1,0 +1,46 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "region",
+            "otherEntityName": "region",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "country"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "city",
+            "otherEntityName": "city",
+            "otherEntityRelationshipName": "country"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "countryName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "capital",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "countryCode",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180608054526",
+    "entityTableName": "country",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

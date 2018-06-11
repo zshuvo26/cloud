@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="cloudApp.session.detail.title">Session</span> {{vm.session.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cloudApp.session.name">Name</span></dt>
+        <dd>
+            <span>{{vm.session.name}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.session.estdDate">Estd Date</span></dt>
+        <dd>
+            <span>{{vm.session.estdDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.session.status">Status</span></dt>
+        <dd>
+            <span>{{vm.session.status}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.session.department">Department</span></dt>
+        <dd>
+            <a ui-sref="department-my-suffix-detail({id:vm.session.departmentId})">{{vm.session.departmentId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="session-my-suffix-detail.edit({id:vm.session.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

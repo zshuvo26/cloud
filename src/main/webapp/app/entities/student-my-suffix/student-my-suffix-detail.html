@@ -1,0 +1,109 @@
+
+<div>
+    <h2><span data-translate="cloudApp.student.detail.title">Student</span> {{vm.student.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cloudApp.student.firstName">First Name</span></dt>
+        <dd>
+            <span>{{vm.student.firstName}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.student.lastName">Last Name</span></dt>
+        <dd>
+            <span>{{vm.student.lastName}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.student.fatherName">Father Name</span></dt>
+        <dd>
+            <span>{{vm.student.fatherName}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.student.motherName">Mother Name</span></dt>
+        <dd>
+            <span>{{vm.student.motherName}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.student.studentId">Student Id</span></dt>
+        <dd>
+            <span>{{vm.student.studentId}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.student.email">Email</span></dt>
+        <dd>
+            <span>{{vm.student.email}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.student.phoneNumber">Phone Number</span></dt>
+        <dd>
+            <span>{{vm.student.phoneNumber}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.student.photo">Photo</span></dt>
+        <dd>
+            <div ng-if="vm.student.photo">
+                <a ng-click="vm.openFile(vm.student.photoContentType, vm.student.photo)" data-translate="entity.action.open">open</a>
+                {{vm.student.photoContentType}}, {{vm.byteSize(vm.student.photo)}}
+            </div>
+        </dd>
+        <dt><span data-translate="cloudApp.student.photoType">Photo Type</span></dt>
+        <dd>
+            <span>{{vm.student.photoType}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.student.photoName">Photo Name</span></dt>
+        <dd>
+            <span>{{vm.student.photoName}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.student.signature">Signature</span></dt>
+        <dd>
+            <div ng-if="vm.student.signature">
+                <a ng-click="vm.openFile(vm.student.signatureContentType, vm.student.signature)" data-translate="entity.action.open">open</a>
+                {{vm.student.signatureContentType}}, {{vm.byteSize(vm.student.signature)}}
+            </div>
+        </dd>
+        <dt><span data-translate="cloudApp.student.signatureType">Signature Type</span></dt>
+        <dd>
+            <span>{{vm.student.signatureType}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.student.signatureName">Signature Name</span></dt>
+        <dd>
+            <span>{{vm.student.signatureName}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.student.dob">Dob</span></dt>
+        <dd>
+            <span>{{vm.student.dob | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.student.nid">Nid</span></dt>
+        <dd>
+            <span>{{vm.student.nid}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.student.birthCertNo">Birth Cert No</span></dt>
+        <dd>
+            <span>{{vm.student.birthCertNo}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.student.gender">Gender</span></dt>
+        <dd>
+            <span data-translate="{{'cloudApp.Gender.' + vm.student.gender}}">{{vm.student.gender}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.student.upazila">Upazila</span></dt>
+        <dd>
+            <a ui-sref="upazila-my-suffix-detail({id:vm.student.upazilaId})">{{vm.student.upazilaId}}</a>
+        </dd>
+        <dt><span data-translate="cloudApp.student.department">Department</span></dt>
+        <dd>
+            <a ui-sref="department-my-suffix-detail({id:vm.student.departmentId})">{{vm.student.departmentId}}</a>
+        </dd>
+        <dt><span data-translate="cloudApp.student.session">Session</span></dt>
+        <dd>
+            <a ui-sref="session-my-suffix-detail({id:vm.student.sessionId})">{{vm.student.sessionId}}</a>
+        </dd>
+        <dt><span data-translate="cloudApp.student.user">User</span></dt>
+        <dd>
+            {{vm.student.userId}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="student-my-suffix-detail.edit({id:vm.student.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

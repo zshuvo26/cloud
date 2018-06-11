@@ -1,0 +1,120 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "upazila",
+            "otherEntityName": "upazila",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "department",
+            "otherEntityName": "department",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "session",
+            "otherEntityName": "session",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "student"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "firstName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fatherName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "motherName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "studentId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phoneNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "photo",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "photoType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "photoName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "signature",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "signatureType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "signatureName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dob",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "nid",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "birthCertNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gender",
+            "fieldType": "Gender",
+            "fieldValues": "MALE,FEMALE,OTHERS"
+        }
+    ],
+    "changelogDate": "20180608054536",
+    "entityTableName": "student",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

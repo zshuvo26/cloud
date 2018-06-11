@@ -1,0 +1,97 @@
+
+<div>
+    <h2><span data-translate="cloudApp.employee.detail.title">Employee</span> {{vm.employee.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cloudApp.employee.firstName">First Name</span></dt>
+        <dd>
+            <span>{{vm.employee.firstName}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.employee.lastName">Last Name</span></dt>
+        <dd>
+            <span>{{vm.employee.lastName}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.employee.employeeId">Employee Id</span></dt>
+        <dd>
+            <span>{{vm.employee.employeeId}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.employee.email">Email</span></dt>
+        <dd>
+            <span>{{vm.employee.email}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.employee.phoneNumber">Phone Number</span></dt>
+        <dd>
+            <span>{{vm.employee.phoneNumber}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.employee.photo">Photo</span></dt>
+        <dd>
+            <div ng-if="vm.employee.photo">
+                <a ng-click="vm.openFile(vm.employee.photoContentType, vm.employee.photo)" data-translate="entity.action.open">open</a>
+                {{vm.employee.photoContentType}}, {{vm.byteSize(vm.employee.photo)}}
+            </div>
+        </dd>
+        <dt><span data-translate="cloudApp.employee.photoType">Photo Type</span></dt>
+        <dd>
+            <span>{{vm.employee.photoType}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.employee.photoName">Photo Name</span></dt>
+        <dd>
+            <span>{{vm.employee.photoName}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.employee.signature">Signature</span></dt>
+        <dd>
+            <div ng-if="vm.employee.signature">
+                <a ng-click="vm.openFile(vm.employee.signatureContentType, vm.employee.signature)" data-translate="entity.action.open">open</a>
+                {{vm.employee.signatureContentType}}, {{vm.byteSize(vm.employee.signature)}}
+            </div>
+        </dd>
+        <dt><span data-translate="cloudApp.employee.signatureType">Signature Type</span></dt>
+        <dd>
+            <span>{{vm.employee.signatureType}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.employee.signatureName">Signature Name</span></dt>
+        <dd>
+            <span>{{vm.employee.signatureName}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.employee.dob">Dob</span></dt>
+        <dd>
+            <span>{{vm.employee.dob | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.employee.nid">Nid</span></dt>
+        <dd>
+            <span>{{vm.employee.nid}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.employee.gender">Gender</span></dt>
+        <dd>
+            <span data-translate="{{'cloudApp.Gender.' + vm.employee.gender}}">{{vm.employee.gender}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.employee.employeeType">Employee Type</span></dt>
+        <dd>
+            <span data-translate="{{'cloudApp.EmployeeType.' + vm.employee.employeeType}}">{{vm.employee.employeeType}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.employee.department">Department</span></dt>
+        <dd>
+            <a ui-sref="department-my-suffix-detail({id:vm.employee.departmentId})">{{vm.employee.departmentId}}</a>
+        </dd>
+        <dt><span data-translate="cloudApp.employee.designation">Designation</span></dt>
+        <dd>
+            <a ui-sref="designation-my-suffix-detail({id:vm.employee.designationId})">{{vm.employee.designationId}}</a>
+        </dd>
+        <dt><span data-translate="cloudApp.employee.user">User</span></dt>
+        <dd>
+            {{vm.employee.userId}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="employee-my-suffix-detail.edit({id:vm.employee.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,45 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "district",
+            "otherEntityName": "district",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "student",
+            "otherEntityName": "student",
+            "otherEntityRelationshipName": "upazila"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "institute",
+            "otherEntityName": "institute",
+            "otherEntityRelationshipName": "upazila"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "javadoc": "The firstname attribute.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "estdDate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20180608054530",
+    "javadoc": "The Employee entity.",
+    "entityTableName": "upazila",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

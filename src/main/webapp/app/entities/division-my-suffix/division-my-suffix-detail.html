@@ -1,0 +1,27 @@
+
+<div>
+    <h2><span data-translate="cloudApp.division.detail.title">Division</span> {{vm.division.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cloudApp.division.name">Name</span></dt>
+        <dd>
+            <span>{{vm.division.name}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.division.estdDate">Estd Date</span></dt>
+        <dd>
+            <span>{{vm.division.estdDate | date:'mediumDate'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="division-my-suffix-detail.edit({id:vm.division.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

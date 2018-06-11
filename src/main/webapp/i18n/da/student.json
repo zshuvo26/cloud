@@ -1,0 +1,42 @@
+
+{
+    "cloudApp": {
+        "student" : {
+            "home": {
+                "title": "Students",
+                "createLabel": "Create a new Student",
+                "createOrEditLabel": "Create or edit a Student"
+            },
+            "created": "A new Student is created with identifier {{ param }}",
+            "updated": "A Student is updated with identifier {{ param }}",
+            "deleted": "A Student is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Student {{ id }}?"
+            },
+            "detail": {
+                "title": "Student"
+            },
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "fatherName": "Father Name",
+            "motherName": "Mother Name",
+            "studentId": "Student Id",
+            "email": "Email",
+            "phoneNumber": "Phone Number",
+            "photo": "Photo",
+            "photoType": "Photo Type",
+            "photoName": "Photo Name",
+            "signature": "Signature",
+            "signatureType": "Signature Type",
+            "signatureName": "Signature Name",
+            "dob": "Dob",
+            "nid": "Nid",
+            "birthCertNo": "Birth Cert No",
+            "gender": "Gender",
+            "upazila": "Upazila",
+            "department": "Department",
+            "session": "Session",
+            "user": "User"
+        }
+    }
+}

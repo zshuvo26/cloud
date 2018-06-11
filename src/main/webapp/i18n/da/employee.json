@@ -1,0 +1,39 @@
+
+{
+    "cloudApp": {
+        "employee" : {
+            "home": {
+                "title": "Employees",
+                "createLabel": "Create a new Employee",
+                "createOrEditLabel": "Create or edit a Employee"
+            },
+            "created": "A new Employee is created with identifier {{ param }}",
+            "updated": "A Employee is updated with identifier {{ param }}",
+            "deleted": "A Employee is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Employee {{ id }}?"
+            },
+            "detail": {
+                "title": "Employee"
+            },
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "employeeId": "Employee Id",
+            "email": "Email",
+            "phoneNumber": "Phone Number",
+            "photo": "Photo",
+            "photoType": "Photo Type",
+            "photoName": "Photo Name",
+            "signature": "Signature",
+            "signatureType": "Signature Type",
+            "signatureName": "Signature Name",
+            "dob": "Dob",
+            "nid": "Nid",
+            "gender": "Gender",
+            "employeeType": "Employee Type",
+            "department": "Department",
+            "designation": "Designation",
+            "user": "User"
+        }
+    }
+}

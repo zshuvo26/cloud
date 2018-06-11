@@ -148,6 +148,40 @@ public class UserService {
         return user;
     }
 
+
+
+
+    public User createCustomUserInformation(String login, String password, String firstName, String lastName, String email,
+                                            String langKey,String userRole,boolean activated) {
+
+        User newUser = new User();
+        Authority authority = authorityRepository.findOne(userRole);
+
+        if(authority==null){
+            authority=new Authority();
+            authority.setName(userRole);
+            authorityRepository.save(authority);
+        }
+
+        Set<Authority> authorities = new HashSet<>();
+        String encryptedPassword = passwordEncoder.encode(password);
+        newUser.setLogin(login);
+        // new user gets initially a generated password
+        newUser.setPassword(encryptedPassword);
+        newUser.setFirstName(firstName);
+        newUser.setLastName(lastName);
+        newUser.setEmail(email);
+        newUser.setLangKey(langKey);
+        // new user is not active
+        newUser.setActivated(activated);
+        // new user gets registration key
+        newUser.setActivationKey(RandomUtil.generateActivationKey());
+        authorities.add(authority);
+        newUser.setAuthorities(authorities);
+        userRepository.save(newUser);
+        log.debug("Created Information for User: {}", newUser);
+        return newUser;
+    }
     /**
      * Update basic information (first name, last name, email, language) for the current user.
      *
