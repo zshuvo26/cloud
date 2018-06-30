@@ -64,6 +64,31 @@ public class CacheConfiguration {
             cm.createCache(cloud.domain.Designation.class.getName() + ".employees", jcacheConfiguration);
             cm.createCache(cloud.domain.Employee.class.getName(), jcacheConfiguration);
             cm.createCache(cloud.domain.Student.class.getName(), jcacheConfiguration);
+            cm.createCache(cloud.domain.Institute.class.getName() + ".bookInfos", jcacheConfiguration);
+            cm.createCache(cloud.domain.Edition.class.getName(), jcacheConfiguration);
+            cm.createCache(cloud.domain.Publisher.class.getName(), jcacheConfiguration);
+            cm.createCache(cloud.domain.Publisher.class.getName() + ".bookInfos", jcacheConfiguration);
+            cm.createCache(cloud.domain.BookInfo.class.getName(), jcacheConfiguration);
+            cm.createCache(cloud.domain.BookInfo.class.getName() + ".bookIssues", jcacheConfiguration);
+            cm.createCache(cloud.domain.BookInfo.class.getName() + ".editions", jcacheConfiguration);
+            cm.createCache(cloud.domain.BookIssue.class.getName(), jcacheConfiguration);
+            cm.createCache(cloud.domain.BookIssue.class.getName() + ".bookReturns", jcacheConfiguration);
+            cm.createCache(cloud.domain.BookRequisition.class.getName(), jcacheConfiguration);
+            cm.createCache(cloud.domain.BookReturn.class.getName(), jcacheConfiguration);
+            cm.createCache(cloud.domain.BookFineSetting.class.getName(), jcacheConfiguration);
+            cm.createCache(cloud.domain.BookFineSetting.class.getName() + ".bookReturns", jcacheConfiguration);
+            cm.createCache(cloud.domain.BookCategory.class.getName(), jcacheConfiguration);
+            cm.createCache(cloud.domain.BookCategory.class.getName() + ".bookSubCategories", jcacheConfiguration);
+            cm.createCache(cloud.domain.BookSubCategory.class.getName(), jcacheConfiguration);
+            cm.createCache(cloud.domain.BookSubCategory.class.getName() + ".bookInfos", jcacheConfiguration);
+            cm.createCache(cloud.domain.BookSubCategory.class.getName() + ".bookRequisitions", jcacheConfiguration);
+            cm.createCache(cloud.domain.BookSubCategory.class.getName() + ".digitalContents", jcacheConfiguration);
+            cm.createCache(cloud.domain.BookType.class.getName(), jcacheConfiguration);
+            cm.createCache(cloud.domain.BookType.class.getName() + ".bookCategories", jcacheConfiguration);
+            cm.createCache(cloud.domain.BookType.class.getName() + ".bookFineSettings", jcacheConfiguration);
+            cm.createCache(cloud.domain.FileType.class.getName(), jcacheConfiguration);
+            cm.createCache(cloud.domain.FileType.class.getName() + ".digitalContents", jcacheConfiguration);
+            cm.createCache(cloud.domain.DigitalContent.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -28,6 +28,12 @@
             "relationshipName": "department",
             "otherEntityName": "department",
             "otherEntityRelationshipName": "institute"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "bookInfo",
+            "otherEntityName": "bookInfo",
+            "otherEntityRelationshipName": "institute"
         }
     ],
     "fields": [

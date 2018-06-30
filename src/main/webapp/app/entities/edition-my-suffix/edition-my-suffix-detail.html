@@ -1,0 +1,51 @@
+
+<div>
+    <h2><span data-translate="cloudApp.edition.detail.title">Edition</span> {{vm.edition.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cloudApp.edition.editionName">Edition Name</span></dt>
+        <dd>
+            <span>{{vm.edition.editionName}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.edition.totalCopies">Total Copies</span></dt>
+        <dd>
+            <span>{{vm.edition.totalCopies}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.edition.compensation">Compensation</span></dt>
+        <dd>
+            <span>{{vm.edition.compensation}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.edition.createDate">Create Date</span></dt>
+        <dd>
+            <span>{{vm.edition.createDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.edition.updateDate">Update Date</span></dt>
+        <dd>
+            <span>{{vm.edition.updateDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.edition.createBy">Create By</span></dt>
+        <dd>
+            <span>{{vm.edition.createBy}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.edition.updateBy">Update By</span></dt>
+        <dd>
+            <span>{{vm.edition.updateBy}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.edition.bookInfo">Book Info</span></dt>
+        <dd>
+            <a ui-sref="book-info-my-suffix-detail({id:vm.edition.bookInfoId})">{{vm.edition.bookInfoId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="edition-my-suffix-detail.edit({id:vm.edition.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

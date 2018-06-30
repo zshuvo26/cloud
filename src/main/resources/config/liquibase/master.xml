@@ -17,6 +17,18 @@
     <include file="config/liquibase/changelog/20180608054534_added_entity_Designation.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180608054535_added_entity_Employee.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180608054536_added_entity_Student.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180629232753_added_entity_Edition.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180629232754_added_entity_Publisher.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180629232755_added_entity_BookInfo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180629232756_added_entity_BookIssue.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180629232757_added_entity_BookRequisition.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180629232758_added_entity_BookReturn.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180629232759_added_entity_BookFineSetting.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180629232800_added_entity_BookCategory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180629232801_added_entity_BookSubCategory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180629232802_added_entity_BookType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180629232803_added_entity_FileType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180629232804_added_entity_DigitalContent.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20180608054526_added_entity_constraints_Country.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180608054527_added_entity_constraints_City.xml" relativeToChangelogFile="false"/>
@@ -27,5 +39,14 @@
     <include file="config/liquibase/changelog/20180608054533_added_entity_constraints_Session.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180608054535_added_entity_constraints_Employee.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180608054536_added_entity_constraints_Student.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180629232753_added_entity_constraints_Edition.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180629232755_added_entity_constraints_BookInfo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180629232756_added_entity_constraints_BookIssue.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180629232757_added_entity_constraints_BookRequisition.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180629232758_added_entity_constraints_BookReturn.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180629232759_added_entity_constraints_BookFineSetting.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180629232800_added_entity_constraints_BookCategory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180629232801_added_entity_constraints_BookSubCategory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180629232804_added_entity_constraints_DigitalContent.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

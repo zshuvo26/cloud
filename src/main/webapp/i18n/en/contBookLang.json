@@ -1,0 +1,9 @@
+{
+    "cloudApp": {
+        "ContBookLang" : {
+            "null": "",
+            "ENGLISH": "ENGLISH",
+            "BANGLA": "BANGLA"
+        }
+    }
+}

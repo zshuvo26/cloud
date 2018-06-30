@@ -1,0 +1,37 @@
+
+{
+    "cloudApp": {
+        "digitalContent" : {
+            "home": {
+                "title": "Digital Contents",
+                "createLabel": "Create a new Digital Content",
+                "createOrEditLabel": "Create or edit a Digital Content"
+            },
+            "created": "A new Digital Content is created with identifier {{ param }}",
+            "updated": "A Digital Content is updated with identifier {{ param }}",
+            "deleted": "A Digital Content is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Digital Content {{ id }}?"
+            },
+            "detail": {
+                "title": "Digital Content"
+            },
+            "accessionNo": "Accession No",
+            "title": "Title",
+            "isbnNo": "Isbn No",
+            "authorName": "Author Name",
+            "coverPhoto": "Cover Photo",
+            "coverPhotoType": "Cover Photo Type",
+            "coverPhotoName": "Cover Photo Name",
+            "content": "Content",
+            "contentType": "Content Type",
+            "contentName": "Content Name",
+            "createDate": "Create Date",
+            "updateDate": "Update Date",
+            "createBy": "Create By",
+            "updateBy": "Update By",
+            "bookSubCategory": "Book Sub Category",
+            "fileType": "File Type"
+        }
+    }
+}

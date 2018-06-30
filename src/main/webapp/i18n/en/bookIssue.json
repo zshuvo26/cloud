@@ -1,0 +1,29 @@
+
+{
+    "cloudApp": {
+        "bookIssue" : {
+            "home": {
+                "title": "Book Issues",
+                "createLabel": "Create a new Book Issue",
+                "createOrEditLabel": "Create or edit a Book Issue"
+            },
+            "created": "A new Book Issue is created with identifier {{ param }}",
+            "updated": "A Book Issue is updated with identifier {{ param }}",
+            "deleted": "A Book Issue is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Book Issue {{ id }}?"
+            },
+            "detail": {
+                "title": "Book Issue"
+            },
+            "noOfCopies": "No Of Copies",
+            "returnDate": "Return Date",
+            "createDate": "Create Date",
+            "updateDate": "Update Date",
+            "createBy": "Create By",
+            "updateBy": "Update By",
+            "bookInfo": "Book Info",
+            "bookReturn": "Book Return"
+        }
+    }
+}

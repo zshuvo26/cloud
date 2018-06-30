@@ -1,0 +1,27 @@
+
+{
+    "cloudApp": {
+        "bookSubCategory" : {
+            "home": {
+                "title": "Book Sub Categories",
+                "createLabel": "Create a new Book Sub Category",
+                "createOrEditLabel": "Create or edit a Book Sub Category"
+            },
+            "created": "A new Book Sub Category is created with identifier {{ param }}",
+            "updated": "A Book Sub Category is updated with identifier {{ param }}",
+            "deleted": "A Book Sub Category is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Book Sub Category {{ id }}?"
+            },
+            "detail": {
+                "title": "Book Sub Category"
+            },
+            "name": "Name",
+            "pStatus": "P Status",
+            "bookCategory": "Book Category",
+            "bookInfo": "Book Info",
+            "bookRequisition": "Book Requisition",
+            "digitalContent": "Digital Content"
+        }
+    }
+}

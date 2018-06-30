@@ -92,6 +92,22 @@
             "fieldName": "employeeType",
             "fieldType": "EmployeeType",
             "fieldValues": "TEACHER,STAFF"
+        },
+        {
+            "fieldName": "createDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "updateDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "createBy",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "updateBy",
+            "fieldType": "Integer"
         }
     ],
     "changelogDate": "20180608054535",

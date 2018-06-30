@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/session-my-suffix?page&sort&search',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: ['ROLE_INSTITUTE'],
                 pageTitle: 'cloudApp.session.home.title'
             },
             views: {
@@ -55,7 +55,7 @@
             parent: 'session-my-suffix',
             url: '/session-my-suffix/{id}',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: ['ROLE_INSTITUTE'],
                 pageTitle: 'cloudApp.session.detail.title'
             },
             views: {
@@ -87,7 +87,7 @@
             parent: 'session-my-suffix-detail',
             url: '/detail/edit',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: ['ROLE_INSTITUTE']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -112,7 +112,7 @@
             parent: 'session-my-suffix',
             url: '/new',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: ['ROLE_INSTITUTE']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -142,7 +142,7 @@
             parent: 'session-my-suffix',
             url: '/{id}/edit',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: ['ROLE_INSTITUTE']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -167,7 +167,7 @@
             parent: 'session-my-suffix',
             url: '/{id}/delete',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: ['ROLE_INSTITUTE']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({

@@ -1,0 +1,103 @@
+<div>
+    <h2 data-translate="cloudApp.bookInfo.home.title">Book Infos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="book-info-my-suffix.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="cloudApp.bookInfo.home.createLabel">
+                        Create new Book Info
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="accessionNo"><span data-translate="cloudApp.bookInfo.accessionNo">Accession No</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="title"><span data-translate="cloudApp.bookInfo.title">Title</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="isbnNo"><span data-translate="cloudApp.bookInfo.isbnNo">Isbn No</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="authorName"><span data-translate="cloudApp.bookInfo.authorName">Author Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="billNo"><span data-translate="cloudApp.bookInfo.billNo">Bill No</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="billDate"><span data-translate="cloudApp.bookInfo.billDate">Bill Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="coverPhoto"><span data-translate="cloudApp.bookInfo.coverPhoto">Cover Photo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="coverPhotoType"><span data-translate="cloudApp.bookInfo.coverPhotoType">Cover Photo Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="coverPhotoName"><span data-translate="cloudApp.bookInfo.coverPhotoName">Cover Photo Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="createDate"><span data-translate="cloudApp.bookInfo.createDate">Create Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="updateDate"><span data-translate="cloudApp.bookInfo.updateDate">Update Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="createBy"><span data-translate="cloudApp.bookInfo.createBy">Create By</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bookCondition"><span data-translate="cloudApp.bookInfo.bookCondition">Book Condition</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="contBookLang"><span data-translate="cloudApp.bookInfo.contBookLang">Cont Book Lang</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="updateBy"><span data-translate="cloudApp.bookInfo.updateBy">Update By</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="instituteId"><span data-translate="cloudApp.bookInfo.institute">Institute</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="publisherId"><span data-translate="cloudApp.bookInfo.publisher">Publisher</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bookSubCategoryId"><span data-translate="cloudApp.bookInfo.bookSubCategory">Book Sub Category</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="bookInfo in vm.bookInfos track by bookInfo.id">
+                    <td><a ui-sref="book-info-my-suffix-detail({id:bookInfo.id})">{{bookInfo.id}}</a></td>
+                    <td>{{bookInfo.accessionNo}}</td>
+                    <td>{{bookInfo.title}}</td>
+                    <td>{{bookInfo.isbnNo}}</td>
+                    <td>{{bookInfo.authorName}}</td>
+                    <td>{{bookInfo.billNo}}</td>
+                        <td>{{bookInfo.billDate | date:'mediumDate'}}</td>
+                    <td>
+                        <a ng-if="bookInfo.coverPhoto" ng-click="vm.openFile(bookInfo.coverPhotoContentType, bookInfo.coverPhoto)" data-translate="entity.action.open">open</a>
+                        <span ng-if="bookInfo.coverPhoto">{{bookInfo.coverPhotoContentType}}, {{vm.byteSize(bookInfo.coverPhoto)}}</span>
+                    </td>
+                    <td>{{bookInfo.coverPhotoType}}</td>
+                    <td>{{bookInfo.coverPhotoName}}</td>
+                        <td>{{bookInfo.createDate | date:'mediumDate'}}</td>
+                        <td>{{bookInfo.updateDate | date:'mediumDate'}}</td>
+                    <td>{{bookInfo.createBy}}</td>
+                    <td data-translate="{{'cloudApp.BookCondition.' + bookInfo.bookCondition}}">{{bookInfo.bookCondition}}</td>
+                    <td data-translate="{{'cloudApp.ContBookLang.' + bookInfo.contBookLang}}">{{bookInfo.contBookLang}}</td>
+                    <td>{{bookInfo.updateBy}}</td>
+                    <td>
+                        <a ui-sref="institute-my-suffix-detail({id:bookInfo.instituteId})">{{bookInfo.instituteId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="publisher-my-suffix-detail({id:bookInfo.publisherId})">{{bookInfo.publisherId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="book-sub-category-my-suffix-detail({id:bookInfo.bookSubCategoryId})">{{bookInfo.bookSubCategoryId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="book-info-my-suffix-detail({id:bookInfo.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="book-info-my-suffix.edit({id:bookInfo.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="book-info-my-suffix.delete({id:bookInfo.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

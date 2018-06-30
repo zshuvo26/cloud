@@ -1,0 +1,24 @@
+
+{
+    "cloudApp": {
+        "fileType" : {
+            "home": {
+                "title": "File Types",
+                "createLabel": "Create a new File Type",
+                "createOrEditLabel": "Create or edit a File Type"
+            },
+            "created": "A new File Type is created with identifier {{ param }}",
+            "updated": "A File Type is updated with identifier {{ param }}",
+            "deleted": "A File Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete File Type {{ id }}?"
+            },
+            "detail": {
+                "title": "File Type"
+            },
+            "fileType": "File Type",
+            "sizeLimit": "Size Limit",
+            "digitalContent": "Digital Content"
+        }
+    }
+}

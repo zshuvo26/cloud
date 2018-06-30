@@ -68,7 +68,7 @@ class EmployeeGatlingTest extends Simulation {
             .exec(http("Create new employee")
             .post("/api/employees")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "firstName":"SAMPLE_TEXT", "lastName":"SAMPLE_TEXT", "employeeId":"SAMPLE_TEXT", "email":"SAMPLE_TEXT", "phoneNumber":"SAMPLE_TEXT", "photo":null, "photoType":"SAMPLE_TEXT", "photoName":"SAMPLE_TEXT", "signature":null, "signatureType":"SAMPLE_TEXT", "signatureName":"SAMPLE_TEXT", "dob":"2020-01-01T00:00:00.000Z", "nid":"SAMPLE_TEXT", "gender":null, "employeeType":null}""")).asJSON
+            .body(StringBody("""{"id":null, "firstName":"SAMPLE_TEXT", "lastName":"SAMPLE_TEXT", "employeeId":"SAMPLE_TEXT", "email":"SAMPLE_TEXT", "phoneNumber":"SAMPLE_TEXT", "photo":null, "photoType":"SAMPLE_TEXT", "photoName":"SAMPLE_TEXT", "signature":null, "signatureType":"SAMPLE_TEXT", "signatureName":"SAMPLE_TEXT", "dob":"2020-01-01T00:00:00.000Z", "nid":"SAMPLE_TEXT", "gender":null, "employeeType":null, "createDate":"2020-01-01T00:00:00.000Z", "updateDate":"2020-01-01T00:00:00.000Z", "createBy":"0", "updateBy":"0"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_employee_url"))).exitHereIfFailed
             .pause(10)

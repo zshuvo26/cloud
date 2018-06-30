@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span data-translate="cloudApp.bookFineSetting.detail.title">Book Fine Setting</span> {{vm.bookFineSetting.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cloudApp.bookFineSetting.maxDayForStaff">Max Day For Staff</span></dt>
+        <dd>
+            <span>{{vm.bookFineSetting.maxDayForStaff}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookFineSetting.maxDayForStudent">Max Day For Student</span></dt>
+        <dd>
+            <span>{{vm.bookFineSetting.maxDayForStudent}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookFineSetting.finePerDayForSatff">Fine Per Day For Satff</span></dt>
+        <dd>
+            <span>{{vm.bookFineSetting.finePerDayForSatff}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookFineSetting.finePerDayForStudent">Fine Per Day For Student</span></dt>
+        <dd>
+            <span>{{vm.bookFineSetting.finePerDayForStudent}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookFineSetting.maxBooksForStaff">Max Books For Staff</span></dt>
+        <dd>
+            <span>{{vm.bookFineSetting.maxBooksForStaff}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookFineSetting.maxBooksForStudnt">Max Books For Studnt</span></dt>
+        <dd>
+            <span>{{vm.bookFineSetting.maxBooksForStudnt}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookFineSetting.bookType">Book Type</span></dt>
+        <dd>
+            <a ui-sref="book-type-my-suffix-detail({id:vm.bookFineSetting.bookTypeId})">{{vm.bookFineSetting.bookTypeId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="book-fine-setting-my-suffix-detail.edit({id:vm.bookFineSetting.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

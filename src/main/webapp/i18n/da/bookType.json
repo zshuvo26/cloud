@@ -1,0 +1,25 @@
+
+{
+    "cloudApp": {
+        "bookType" : {
+            "home": {
+                "title": "Book Types",
+                "createLabel": "Create a new Book Type",
+                "createOrEditLabel": "Create or edit a Book Type"
+            },
+            "created": "A new Book Type is created with identifier {{ param }}",
+            "updated": "A Book Type is updated with identifier {{ param }}",
+            "deleted": "A Book Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Book Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Book Type"
+            },
+            "name": "Name",
+            "pStatus": "P Status",
+            "bookCategory": "Book Category",
+            "bookFineSetting": "Book Fine Setting"
+        }
+    }
+}

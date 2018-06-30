@@ -5,9 +5,9 @@ import cloud.CloudApp;
 import cloud.domain.Institute;
 import cloud.repository.InstituteRepository;
 import cloud.service.InstituteService;
+import cloud.service.UserService;
 import cloud.service.dto.InstituteDTO;
 import cloud.service.mapper.InstituteMapper;
-import cloud.service.UserService;
 import cloud.web.rest.errors.ExceptionTranslator;
 
 import org.junit.Before;

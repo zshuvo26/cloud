@@ -1,0 +1,89 @@
+
+<div>
+    <h2><span data-translate="cloudApp.digitalContent.detail.title">Digital Content</span> {{vm.digitalContent.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cloudApp.digitalContent.accessionNo">Accession No</span></dt>
+        <dd>
+            <span>{{vm.digitalContent.accessionNo}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.digitalContent.title">Title</span></dt>
+        <dd>
+            <span>{{vm.digitalContent.title}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.digitalContent.isbnNo">Isbn No</span></dt>
+        <dd>
+            <span>{{vm.digitalContent.isbnNo}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.digitalContent.authorName">Author Name</span></dt>
+        <dd>
+            <span>{{vm.digitalContent.authorName}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.digitalContent.coverPhoto">Cover Photo</span></dt>
+        <dd>
+            <div ng-if="vm.digitalContent.coverPhoto">
+                <a ng-click="vm.openFile(vm.digitalContent.coverPhotoContentType, vm.digitalContent.coverPhoto)" data-translate="entity.action.open">open</a>
+                {{vm.digitalContent.coverPhotoContentType}}, {{vm.byteSize(vm.digitalContent.coverPhoto)}}
+            </div>
+        </dd>
+        <dt><span data-translate="cloudApp.digitalContent.coverPhotoType">Cover Photo Type</span></dt>
+        <dd>
+            <span>{{vm.digitalContent.coverPhotoType}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.digitalContent.coverPhotoName">Cover Photo Name</span></dt>
+        <dd>
+            <span>{{vm.digitalContent.coverPhotoName}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.digitalContent.content">Content</span></dt>
+        <dd>
+            <div ng-if="vm.digitalContent.content">
+                <a ng-click="vm.openFile(vm.digitalContent.contentContentType, vm.digitalContent.content)" data-translate="entity.action.open">open</a>
+                {{vm.digitalContent.contentContentType}}, {{vm.byteSize(vm.digitalContent.content)}}
+            </div>
+        </dd>
+        <dt><span data-translate="cloudApp.digitalContent.contentType">Content Type</span></dt>
+        <dd>
+            <span>{{vm.digitalContent.contentType}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.digitalContent.contentName">Content Name</span></dt>
+        <dd>
+            <span>{{vm.digitalContent.contentName}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.digitalContent.createDate">Create Date</span></dt>
+        <dd>
+            <span>{{vm.digitalContent.createDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.digitalContent.updateDate">Update Date</span></dt>
+        <dd>
+            <span>{{vm.digitalContent.updateDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.digitalContent.createBy">Create By</span></dt>
+        <dd>
+            <span>{{vm.digitalContent.createBy}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.digitalContent.updateBy">Update By</span></dt>
+        <dd>
+            <span>{{vm.digitalContent.updateBy}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.digitalContent.bookSubCategory">Book Sub Category</span></dt>
+        <dd>
+            <a ui-sref="book-sub-category-my-suffix-detail({id:vm.digitalContent.bookSubCategoryId})">{{vm.digitalContent.bookSubCategoryId}}</a>
+        </dd>
+        <dt><span data-translate="cloudApp.digitalContent.fileType">File Type</span></dt>
+        <dd>
+            <a ui-sref="file-type-my-suffix-detail({id:vm.digitalContent.fileTypeId})">{{vm.digitalContent.fileTypeId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="digital-content-my-suffix-detail.edit({id:vm.digitalContent.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

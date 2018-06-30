@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "digitalContent",
+            "otherEntityName": "digitalContent",
+            "otherEntityRelationshipName": "fileType"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "fileType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sizeLimit",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180629232803",
+    "entityTableName": "file_type",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

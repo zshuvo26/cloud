@@ -88,6 +88,22 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="create_date" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="update_date" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="create_by" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="update_by" type="integer">
+                <constraints nullable="true" />
+            </column>
+
             <column name="department_id" type="bigint">
                 <constraints nullable="true" />
             </column>

@@ -1,0 +1,126 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myBookReturnLabel" data-translate="cloudApp.bookReturn.home.createOrEditLabel">Create or edit a Book Return</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.bookReturn.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.bookReturn.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookReturn.receivedStatus" for="field_receivedStatus">Received Status</label>
+            <input type="text" class="form-control" name="receivedStatus" id="field_receivedStatus"
+                    ng-model="vm.bookReturn.receivedStatus"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookReturn.totalFine" for="field_totalFine">Total Fine</label>
+            <input type="text" class="form-control" name="totalFine" id="field_totalFine"
+                    ng-model="vm.bookReturn.totalFine"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookReturn.fineDeposit" for="field_fineDeposit">Fine Deposit</label>
+            <input type="text" class="form-control" name="fineDeposit" id="field_fineDeposit"
+                    ng-model="vm.bookReturn.fineDeposit"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookReturn.remissionStatus" for="field_remissionStatus">Remission Status</label>
+                <input type="checkbox" name="remissionStatus" id="field_remissionStatus"
+                          ng-model="vm.bookReturn.remissionStatus"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookReturn.compensation" for="field_compensation">Compensation</label>
+            <input type="text" class="form-control" name="compensation" id="field_compensation"
+                    ng-model="vm.bookReturn.compensation"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookReturn.compensationDeposit" for="field_compensationDeposit">Compensation Deposit</label>
+            <input type="text" class="form-control" name="compensationDeposit" id="field_compensationDeposit"
+                    ng-model="vm.bookReturn.compensationDeposit"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookReturn.compensationFineDeposit" for="field_compensationFineDeposit">Compensation Fine Deposit</label>
+            <input type="text" class="form-control" name="compensationFineDeposit" id="field_compensationFineDeposit"
+                    ng-model="vm.bookReturn.compensationFineDeposit"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookReturn.remissionCompensationStatus" for="field_remissionCompensationStatus">Remission Compensation Status</label>
+                <input type="checkbox" name="remissionCompensationStatus" id="field_remissionCompensationStatus"
+                          ng-model="vm.bookReturn.remissionCompensationStatus"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookReturn.cfFineStatus" for="field_cfFineStatus">Cf Fine Status</label>
+                <input type="checkbox" name="cfFineStatus" id="field_cfFineStatus"
+                          ng-model="vm.bookReturn.cfFineStatus"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookReturn.cfCompensationStatus" for="field_cfCompensationStatus">Cf Compensation Status</label>
+                <input type="checkbox" name="cfCompensationStatus" id="field_cfCompensationStatus"
+                          ng-model="vm.bookReturn.cfCompensationStatus"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookReturn.createDate" for="field_createDate">Create Date</label>
+                <div class="input-group">
+                    <input id="field_createDate" type="text" class="form-control" name="createDate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.bookReturn.createDate" is-open="vm.datePickerOpenStatus.createDate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('createDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookReturn.updateDate" for="field_updateDate">Update Date</label>
+                <div class="input-group">
+                    <input id="field_updateDate" type="text" class="form-control" name="updateDate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.bookReturn.updateDate" is-open="vm.datePickerOpenStatus.updateDate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('updateDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookReturn.createBy" for="field_createBy">Create By</label>
+            <input type="number" class="form-control" name="createBy" id="field_createBy"
+                    ng-model="vm.bookReturn.createBy"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookReturn.updateBy" for="field_updateBy">Update By</label>
+            <input type="number" class="form-control" name="updateBy" id="field_updateBy"
+                    ng-model="vm.bookReturn.updateBy"
+                    />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="cloudApp.bookReturn.bookIssue" for="field_bookIssue">Book Issue</label>
+            <select class="form-control" id="field_bookIssue" name="bookIssue" ng-model="vm.bookReturn.bookIssueId" ng-options="bookIssue.id as bookIssue.id for bookIssue in vm.bookissues"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="cloudApp.bookReturn.bookFineSetting" for="field_bookFineSetting">Book Fine Setting</label>
+            <select class="form-control" id="field_bookFineSetting" name="bookFineSetting" ng-model="vm.bookReturn.bookFineSettingId" ng-options="bookFineSetting.id as bookFineSetting.id for bookFineSetting in vm.bookfinesettings"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,46 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "bookCategory",
+            "otherEntityName": "bookCategory",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "bookInfo",
+            "otherEntityName": "bookInfo",
+            "otherEntityRelationshipName": "bookSubCategory"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "bookRequisition",
+            "otherEntityName": "bookRequisition",
+            "otherEntityRelationshipName": "bookSubCategory"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "digitalContent",
+            "otherEntityName": "digitalContent",
+            "otherEntityRelationshipName": "bookSubCategory"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pStatus",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20180629232801",
+    "entityTableName": "book_sub_category",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

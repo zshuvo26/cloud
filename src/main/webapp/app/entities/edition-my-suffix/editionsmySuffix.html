@@ -1,0 +1,76 @@
+<div>
+    <h2 data-translate="cloudApp.edition.home.title">Editions</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="edition-my-suffix.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="cloudApp.edition.home.createLabel">
+                        Create new Edition
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="editionName"><span data-translate="cloudApp.edition.editionName">Edition Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="totalCopies"><span data-translate="cloudApp.edition.totalCopies">Total Copies</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="compensation"><span data-translate="cloudApp.edition.compensation">Compensation</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="createDate"><span data-translate="cloudApp.edition.createDate">Create Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="updateDate"><span data-translate="cloudApp.edition.updateDate">Update Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="createBy"><span data-translate="cloudApp.edition.createBy">Create By</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="updateBy"><span data-translate="cloudApp.edition.updateBy">Update By</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bookInfoId"><span data-translate="cloudApp.edition.bookInfo">Book Info</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="edition in vm.editions track by edition.id">
+                    <td><a ui-sref="edition-my-suffix-detail({id:edition.id})">{{edition.id}}</a></td>
+                    <td>{{edition.editionName}}</td>
+                    <td>{{edition.totalCopies}}</td>
+                    <td>{{edition.compensation}}</td>
+                        <td>{{edition.createDate | date:'mediumDate'}}</td>
+                        <td>{{edition.updateDate | date:'mediumDate'}}</td>
+                    <td>{{edition.createBy}}</td>
+                    <td>{{edition.updateBy}}</td>
+                    <td>
+                        <a ui-sref="book-info-my-suffix-detail({id:edition.bookInfoId})">{{edition.bookInfoId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="edition-my-suffix-detail({id:edition.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="edition-my-suffix.edit({id:edition.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="edition-my-suffix.delete({id:edition.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

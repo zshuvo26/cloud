@@ -1,0 +1,113 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "institute",
+            "otherEntityName": "institute",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "publisher",
+            "otherEntityName": "publisher",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "bookIssue",
+            "otherEntityName": "bookIssue",
+            "otherEntityRelationshipName": "bookInfo"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "edition",
+            "otherEntityName": "edition",
+            "otherEntityRelationshipName": "bookInfo"
+        },
+        {
+            "relationshipName": "bookSubCategory",
+            "otherEntityName": "bookSubCategory",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "accessionNo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "isbnNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "authorName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "billNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "billDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "coverPhoto",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "coverPhotoType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "coverPhotoName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "updateDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "createBy",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "bookCondition",
+            "fieldType": "BookCondition",
+            "fieldValues": "FRESH,USED"
+        },
+        {
+            "fieldName": "contBookLang",
+            "fieldType": "ContBookLang",
+            "fieldValues": "ENGLISH,BANGLA"
+        },
+        {
+            "fieldName": "updateBy",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20180629232755",
+    "entityTableName": "book_info",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

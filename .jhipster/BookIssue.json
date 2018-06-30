@@ -1,0 +1,53 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "bookInfo",
+            "otherEntityName": "bookInfo",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "bookReturn",
+            "otherEntityName": "bookReturn",
+            "otherEntityRelationshipName": "bookIssue"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "noOfCopies",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "returnDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "createDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "updateDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "createBy",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "updateBy",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20180629232756",
+    "entityTableName": "book_issue",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

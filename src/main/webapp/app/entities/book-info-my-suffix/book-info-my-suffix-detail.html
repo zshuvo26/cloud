@@ -1,0 +1,94 @@
+
+<div>
+    <h2><span data-translate="cloudApp.bookInfo.detail.title">Book Info</span> {{vm.bookInfo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cloudApp.bookInfo.accessionNo">Accession No</span></dt>
+        <dd>
+            <span>{{vm.bookInfo.accessionNo}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookInfo.title">Title</span></dt>
+        <dd>
+            <span>{{vm.bookInfo.title}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookInfo.isbnNo">Isbn No</span></dt>
+        <dd>
+            <span>{{vm.bookInfo.isbnNo}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookInfo.authorName">Author Name</span></dt>
+        <dd>
+            <span>{{vm.bookInfo.authorName}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookInfo.billNo">Bill No</span></dt>
+        <dd>
+            <span>{{vm.bookInfo.billNo}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookInfo.billDate">Bill Date</span></dt>
+        <dd>
+            <span>{{vm.bookInfo.billDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookInfo.coverPhoto">Cover Photo</span></dt>
+        <dd>
+            <div ng-if="vm.bookInfo.coverPhoto">
+                <a ng-click="vm.openFile(vm.bookInfo.coverPhotoContentType, vm.bookInfo.coverPhoto)" data-translate="entity.action.open">open</a>
+                {{vm.bookInfo.coverPhotoContentType}}, {{vm.byteSize(vm.bookInfo.coverPhoto)}}
+            </div>
+        </dd>
+        <dt><span data-translate="cloudApp.bookInfo.coverPhotoType">Cover Photo Type</span></dt>
+        <dd>
+            <span>{{vm.bookInfo.coverPhotoType}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookInfo.coverPhotoName">Cover Photo Name</span></dt>
+        <dd>
+            <span>{{vm.bookInfo.coverPhotoName}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookInfo.createDate">Create Date</span></dt>
+        <dd>
+            <span>{{vm.bookInfo.createDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookInfo.updateDate">Update Date</span></dt>
+        <dd>
+            <span>{{vm.bookInfo.updateDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookInfo.createBy">Create By</span></dt>
+        <dd>
+            <span>{{vm.bookInfo.createBy}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookInfo.bookCondition">Book Condition</span></dt>
+        <dd>
+            <span data-translate="{{'cloudApp.BookCondition.' + vm.bookInfo.bookCondition}}">{{vm.bookInfo.bookCondition}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookInfo.contBookLang">Cont Book Lang</span></dt>
+        <dd>
+            <span data-translate="{{'cloudApp.ContBookLang.' + vm.bookInfo.contBookLang}}">{{vm.bookInfo.contBookLang}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookInfo.updateBy">Update By</span></dt>
+        <dd>
+            <span>{{vm.bookInfo.updateBy}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookInfo.institute">Institute</span></dt>
+        <dd>
+            <a ui-sref="institute-my-suffix-detail({id:vm.bookInfo.instituteId})">{{vm.bookInfo.instituteId}}</a>
+        </dd>
+        <dt><span data-translate="cloudApp.bookInfo.publisher">Publisher</span></dt>
+        <dd>
+            <a ui-sref="publisher-my-suffix-detail({id:vm.bookInfo.publisherId})">{{vm.bookInfo.publisherId}}</a>
+        </dd>
+        <dt><span data-translate="cloudApp.bookInfo.bookSubCategory">Book Sub Category</span></dt>
+        <dd>
+            <a ui-sref="book-sub-category-my-suffix-detail({id:vm.bookInfo.bookSubCategoryId})">{{vm.bookInfo.bookSubCategoryId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="book-info-my-suffix-detail.edit({id:vm.bookInfo.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

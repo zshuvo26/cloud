@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/designation-my-suffix?page&sort&search',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: ['ROLE_INSTITUTE'],
                 pageTitle: 'cloudApp.designation.home.title'
             },
             views: {
@@ -55,7 +55,7 @@
             parent: 'designation-my-suffix',
             url: '/designation-my-suffix/{id}',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: ['ROLE_INSTITUTE'],
                 pageTitle: 'cloudApp.designation.detail.title'
             },
             views: {
@@ -87,7 +87,7 @@
             parent: 'designation-my-suffix-detail',
             url: '/detail/edit',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: ['ROLE_INSTITUTE']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -112,7 +112,7 @@
             parent: 'designation-my-suffix',
             url: '/new',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: ['ROLE_INSTITUTE']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -140,7 +140,7 @@
             parent: 'designation-my-suffix',
             url: '/{id}/edit',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: ['ROLE_INSTITUTE']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -165,7 +165,7 @@
             parent: 'designation-my-suffix',
             url: '/{id}/delete',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: ['ROLE_INSTITUTE']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({

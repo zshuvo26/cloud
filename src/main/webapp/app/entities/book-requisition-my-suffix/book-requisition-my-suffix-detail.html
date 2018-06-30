@@ -1,0 +1,51 @@
+
+<div>
+    <h2><span data-translate="cloudApp.bookRequisition.detail.title">Book Requisition</span> {{vm.bookRequisition.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cloudApp.bookRequisition.title">Title</span></dt>
+        <dd>
+            <span>{{vm.bookRequisition.title}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookRequisition.edition">Edition</span></dt>
+        <dd>
+            <span>{{vm.bookRequisition.edition}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookRequisition.authorName">Author Name</span></dt>
+        <dd>
+            <span>{{vm.bookRequisition.authorName}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookRequisition.createDate">Create Date</span></dt>
+        <dd>
+            <span>{{vm.bookRequisition.createDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookRequisition.updateDate">Update Date</span></dt>
+        <dd>
+            <span>{{vm.bookRequisition.updateDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookRequisition.createBy">Create By</span></dt>
+        <dd>
+            <span>{{vm.bookRequisition.createBy}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookRequisition.updateBy">Update By</span></dt>
+        <dd>
+            <span>{{vm.bookRequisition.updateBy}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookRequisition.bookSubCategory">Book Sub Category</span></dt>
+        <dd>
+            <a ui-sref="book-sub-category-my-suffix-detail({id:vm.bookRequisition.bookSubCategoryId})">{{vm.bookRequisition.bookSubCategoryId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="book-requisition-my-suffix-detail.edit({id:vm.bookRequisition.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

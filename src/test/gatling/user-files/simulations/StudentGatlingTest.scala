@@ -68,7 +68,7 @@ class StudentGatlingTest extends Simulation {
             .exec(http("Create new student")
             .post("/api/students")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "firstName":"SAMPLE_TEXT", "lastName":"SAMPLE_TEXT", "fatherName":"SAMPLE_TEXT", "motherName":"SAMPLE_TEXT", "studentId":"SAMPLE_TEXT", "email":"SAMPLE_TEXT", "phoneNumber":"SAMPLE_TEXT", "photo":null, "photoType":"SAMPLE_TEXT", "photoName":"SAMPLE_TEXT", "signature":null, "signatureType":"SAMPLE_TEXT", "signatureName":"SAMPLE_TEXT", "dob":"2020-01-01T00:00:00.000Z", "nid":"SAMPLE_TEXT", "birthCertNo":"SAMPLE_TEXT", "gender":null}""")).asJSON
+            .body(StringBody("""{"id":null, "firstName":"SAMPLE_TEXT", "lastName":"SAMPLE_TEXT", "fatherName":"SAMPLE_TEXT", "motherName":"SAMPLE_TEXT", "studentId":"SAMPLE_TEXT", "email":"SAMPLE_TEXT", "phoneNumber":"SAMPLE_TEXT", "photo":null, "photoType":"SAMPLE_TEXT", "photoName":"SAMPLE_TEXT", "signature":null, "signatureType":"SAMPLE_TEXT", "signatureName":"SAMPLE_TEXT", "dob":"2020-01-01T00:00:00.000Z", "nid":"SAMPLE_TEXT", "birthCertNo":"SAMPLE_TEXT", "gender":null, "createDate":"2020-01-01T00:00:00.000Z", "updateDate":"2020-01-01T00:00:00.000Z", "createBy":"0", "updateBy":"0"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_student_url"))).exitHereIfFailed
             .pause(10)

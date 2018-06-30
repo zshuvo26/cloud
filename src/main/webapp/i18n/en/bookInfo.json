@@ -1,0 +1,41 @@
+
+{
+    "cloudApp": {
+        "bookInfo" : {
+            "home": {
+                "title": "Book Infos",
+                "createLabel": "Create a new Book Info",
+                "createOrEditLabel": "Create or edit a Book Info"
+            },
+            "created": "A new Book Info is created with identifier {{ param }}",
+            "updated": "A Book Info is updated with identifier {{ param }}",
+            "deleted": "A Book Info is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Book Info {{ id }}?"
+            },
+            "detail": {
+                "title": "Book Info"
+            },
+            "accessionNo": "Accession No",
+            "title": "Title",
+            "isbnNo": "Isbn No",
+            "authorName": "Author Name",
+            "billNo": "Bill No",
+            "billDate": "Bill Date",
+            "coverPhoto": "Cover Photo",
+            "coverPhotoType": "Cover Photo Type",
+            "coverPhotoName": "Cover Photo Name",
+            "createDate": "Create Date",
+            "updateDate": "Update Date",
+            "createBy": "Create By",
+            "bookCondition": "Book Condition",
+            "contBookLang": "Cont Book Lang",
+            "updateBy": "Update By",
+            "institute": "Institute",
+            "publisher": "Publisher",
+            "bookIssue": "Book Issue",
+            "edition": "Edition",
+            "bookSubCategory": "Book Sub Category"
+        }
+    }
+}

@@ -1,0 +1,174 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myDigitalContentLabel" data-translate="cloudApp.digitalContent.home.createOrEditLabel">Create or edit a Digital Content</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.digitalContent.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.digitalContent.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.digitalContent.accessionNo" for="field_accessionNo">Accession No</label>
+            <input type="text" class="form-control" name="accessionNo" id="field_accessionNo"
+                    ng-model="vm.digitalContent.accessionNo"
+                    required/>
+            <div ng-show="editForm.accessionNo.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.accessionNo.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.digitalContent.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                    ng-model="vm.digitalContent.title"
+                    required/>
+            <div ng-show="editForm.title.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.title.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.digitalContent.isbnNo" for="field_isbnNo">Isbn No</label>
+            <input type="text" class="form-control" name="isbnNo" id="field_isbnNo"
+                    ng-model="vm.digitalContent.isbnNo"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.digitalContent.authorName" for="field_authorName">Author Name</label>
+            <input type="text" class="form-control" name="authorName" id="field_authorName"
+                    ng-model="vm.digitalContent.authorName"
+                    />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setCoverPhoto($file, vm.digitalContent)">
+            <label class="control-label" data-translate="cloudApp.digitalContent.coverPhoto" for="field_coverPhoto">Cover Photo</label>
+            <div>
+                <div ng-if="vm.digitalContent.coverPhoto" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.digitalContent.coverPhotoContentType, vm.digitalContent.coverPhoto)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.digitalContent.coverPhotoContentType}}, {{vm.byteSize(vm.digitalContent.coverPhoto)}}</span>
+                    <button type="button" ng-click="vm.digitalContent.coverPhoto=null;vm.digitalContent.coverPhotoContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setCoverPhoto($file, vm.digitalContent)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="coverPhoto" id="field_coverPhoto"
+                    ng-model="vm.digitalContent.coverPhoto"
+                    />
+            <input type="hidden" class="form-control" name="coverPhotoContentType" id="field_coverPhotoContentType"
+                    ng-model="vm.digitalContent.coverPhotoContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.digitalContent.coverPhotoType" for="field_coverPhotoType">Cover Photo Type</label>
+            <input type="text" class="form-control" name="coverPhotoType" id="field_coverPhotoType"
+                    ng-model="vm.digitalContent.coverPhotoType"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.digitalContent.coverPhotoName" for="field_coverPhotoName">Cover Photo Name</label>
+            <input type="text" class="form-control" name="coverPhotoName" id="field_coverPhotoName"
+                    ng-model="vm.digitalContent.coverPhotoName"
+                    />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setContent($file, vm.digitalContent)">
+            <label class="control-label" data-translate="cloudApp.digitalContent.content" for="field_content">Content</label>
+            <div>
+                <div ng-if="vm.digitalContent.content" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.digitalContent.contentContentType, vm.digitalContent.content)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.digitalContent.contentContentType}}, {{vm.byteSize(vm.digitalContent.content)}}</span>
+                    <button type="button" ng-click="vm.digitalContent.content=null;vm.digitalContent.contentContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setContent($file, vm.digitalContent)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="content" id="field_content"
+                    ng-model="vm.digitalContent.content"
+                    />
+            <input type="hidden" class="form-control" name="contentContentType" id="field_contentContentType"
+                    ng-model="vm.digitalContent.contentContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.digitalContent.contentType" for="field_contentType">Content Type</label>
+            <input type="text" class="form-control" name="contentType" id="field_contentType"
+                    ng-model="vm.digitalContent.contentType"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.digitalContent.contentName" for="field_contentName">Content Name</label>
+            <input type="text" class="form-control" name="contentName" id="field_contentName"
+                    ng-model="vm.digitalContent.contentName"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.digitalContent.createDate" for="field_createDate">Create Date</label>
+                <div class="input-group">
+                    <input id="field_createDate" type="text" class="form-control" name="createDate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.digitalContent.createDate" is-open="vm.datePickerOpenStatus.createDate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('createDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.digitalContent.updateDate" for="field_updateDate">Update Date</label>
+                <div class="input-group">
+                    <input id="field_updateDate" type="text" class="form-control" name="updateDate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.digitalContent.updateDate" is-open="vm.datePickerOpenStatus.updateDate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('updateDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.digitalContent.createBy" for="field_createBy">Create By</label>
+            <input type="number" class="form-control" name="createBy" id="field_createBy"
+                    ng-model="vm.digitalContent.createBy"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.digitalContent.updateBy" for="field_updateBy">Update By</label>
+            <input type="number" class="form-control" name="updateBy" id="field_updateBy"
+                    ng-model="vm.digitalContent.updateBy"
+                    />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="cloudApp.digitalContent.bookSubCategory" for="field_bookSubCategory">Book Sub Category</label>
+            <select class="form-control" id="field_bookSubCategory" name="bookSubCategory" ng-model="vm.digitalContent.bookSubCategoryId" ng-options="bookSubCategory.id as bookSubCategory.id for bookSubCategory in vm.booksubcategories"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="cloudApp.digitalContent.fileType" for="field_fileType">File Type</label>
+            <select class="form-control" id="field_fileType" name="fileType" ng-model="vm.digitalContent.fileTypeId" ng-options="fileType.id as fileType.id for fileType in vm.filetypes"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

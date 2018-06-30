@@ -1,0 +1,68 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myBookFineSettingLabel" data-translate="cloudApp.bookFineSetting.home.createOrEditLabel">Create or edit a Book Fine Setting</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.bookFineSetting.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.bookFineSetting.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookFineSetting.maxDayForStaff" for="field_maxDayForStaff">Max Day For Staff</label>
+            <input type="text" class="form-control" name="maxDayForStaff" id="field_maxDayForStaff"
+                    ng-model="vm.bookFineSetting.maxDayForStaff"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookFineSetting.maxDayForStudent" for="field_maxDayForStudent">Max Day For Student</label>
+            <input type="text" class="form-control" name="maxDayForStudent" id="field_maxDayForStudent"
+                    ng-model="vm.bookFineSetting.maxDayForStudent"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookFineSetting.finePerDayForSatff" for="field_finePerDayForSatff">Fine Per Day For Satff</label>
+            <input type="text" class="form-control" name="finePerDayForSatff" id="field_finePerDayForSatff"
+                    ng-model="vm.bookFineSetting.finePerDayForSatff"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookFineSetting.finePerDayForStudent" for="field_finePerDayForStudent">Fine Per Day For Student</label>
+            <input type="text" class="form-control" name="finePerDayForStudent" id="field_finePerDayForStudent"
+                    ng-model="vm.bookFineSetting.finePerDayForStudent"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookFineSetting.maxBooksForStaff" for="field_maxBooksForStaff">Max Books For Staff</label>
+            <input type="text" class="form-control" name="maxBooksForStaff" id="field_maxBooksForStaff"
+                    ng-model="vm.bookFineSetting.maxBooksForStaff"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookFineSetting.maxBooksForStudnt" for="field_maxBooksForStudnt">Max Books For Studnt</label>
+            <input type="text" class="form-control" name="maxBooksForStudnt" id="field_maxBooksForStudnt"
+                    ng-model="vm.bookFineSetting.maxBooksForStudnt"
+                    />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="cloudApp.bookFineSetting.bookType" for="field_bookType">Book Type</label>
+            <select class="form-control" id="field_bookType" name="bookType" ng-model="vm.bookFineSetting.bookTypeId" ng-options="bookType.id as bookType.id for bookType in vm.booktypes"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

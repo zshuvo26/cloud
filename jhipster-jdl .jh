@@ -1,0 +1,319 @@
+entity Region {
+	regionName String
+}
+entity Country {
+	countryName String required,
+    capital String required,
+    countryCode String
+    
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity City {
+	cityName String required,
+	area String,
+	stateProvince String
+}
+
+entity Division {
+	name String required,
+    estdDate LocalDate
+}
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+entity District {
+	name String required,
+    estdDate LocalDate
+}
+
+/**
+ * The Employee entity.
+ */
+entity Upazila {
+	/**
+	* The firstname attribute.
+	*/
+	name String required,
+	estdDate LocalDate
+	
+}
+entity Institute {
+	name String required,
+	estdDate LocalDate,
+    email String,
+    website String,
+    contactNo String,
+    instituteType InstituteType
+    
+	}
+entity Department {
+	name String required,
+	estdDate LocalDate
+    
+	}
+entity Session {
+	name String required,
+	estdDate LocalDate,
+    status Boolean
+    
+	}
+entity Designation {
+	name String required
+	
+	}
+entity Employee {
+	firstName String required,
+    lastName String required,
+	employeeId String,
+    email String,
+    phoneNumber String,
+    photo Blob,
+    photoType String,
+    photoName String,
+    signature Blob,
+    signatureType String,
+    signatureName String,
+    dob LocalDate,
+    nid String,
+    gender Gender,
+    employeeType EmployeeType,
+    createDate LocalDate,
+    updateDate LocalDate,
+    createBy Integer,
+    updateBy Integer
+
+    
+	}
+entity Student {
+    firstName String required,
+    lastName String required,
+    fatherName String,
+    motherName String required,
+    studentId String,
+    email String,
+    phoneNumber String,
+    photo Blob,
+    photoType String,
+    photoName String,
+    signature Blob,
+    signatureType String,
+    signatureName String,
+    dob LocalDate,
+    nid String,
+    birthCertNo String,
+    gender Gender,
+    createDate LocalDate,
+    updateDate LocalDate,
+    createBy Integer,
+    updateBy Integer
+
+	}
+    
+   entity Edition {
+    editionName String required,
+    totalCopies String,
+    compensation String,
+    createDate LocalDate,
+    updateDate LocalDate,
+    createBy Integer,
+    updateBy Integer
+   	}
+    entity Publisher {
+    name String required,
+    place String,
+    createDate LocalDate,
+    updateDate LocalDate,
+    createBy Integer,
+    updateBy Integer
+    
+   	}
+   entity BookInfo {
+    accessionNo String required,
+    title String required,
+    isbnNo String,
+    authorName String,
+    billNo String,
+    billDate LocalDate,
+    authorName String,
+    coverPhoto Blob,
+    coverPhotoType String,
+    coverPhotoName String,
+    createDate LocalDate,
+    updateDate LocalDate,
+    createBy Integer,
+    bookCondition BookCondition,
+    contBookLang ContBookLang,
+
+    updateBy Integer
+   	}
+    entity BookIssue {
+    noOfCopies String required,
+    returnDate LocalDate,
+    createDate LocalDate,
+    updateDate LocalDate,
+    createBy Integer,
+    updateBy Integer
+   
+	}
+    entity BookRequisition {
+    title String required,
+    edition String,
+    authorName String,
+    createDate LocalDate,
+    updateDate LocalDate,
+    createBy Integer,
+    updateBy Integer
+   
+	}
+    entity BookReturn {
+    receivedStatus String,
+    totalFine String,
+    fineDeposit String,
+    remissionStatus Boolean,
+    compensation String,
+    compensationDeposit String,
+    compensationFineDeposit String,
+    remissionCompensationStatus Boolean,
+    cfFineStatus Boolean,
+    cfCompensationStatus Boolean,
+    createDate LocalDate,
+    updateDate LocalDate,
+    createBy Integer,
+    updateBy Integer
+   
+	}
+    entity BookFineSetting {
+    maxDayForStaff String,
+    maxDayForStudent String,
+    finePerDayForSatff String,
+    finePerDayForStudent String,
+    maxBooksForStaff String,
+    maxBooksForStudnt String
+ 
+	}
+     entity BookCategory {
+    name String,
+    pStatus Boolean
+  
+   
+	}
+     entity BookSubCategory {
+    name String,
+    pStatus Boolean
+  
+   	}
+     entity BookType {
+    name String,
+    pStatus Boolean
+    
+	}
+     entity FileType {
+    fileType String,
+    sizeLimit String
+    
+   
+	}
+    entity DigitalContent {
+    accessionNo String required,
+    title String required,
+    isbnNo String,
+    authorName String,
+    coverPhoto Blob,
+    coverPhotoType String,
+    coverPhotoName String,
+    content Blob,
+    contentType String,
+    contentName String,
+    createDate LocalDate,
+    updateDate LocalDate,
+    createBy Integer,
+    updateBy Integer
+   	}
+    
+    enum InstituteType {
+    UNIVERSITY, ENGINEERING_COLLEGE, MEDICAL_COLLEGE, INSTITUTE, COLLEGE
+   }
+   enum Gender {
+    MALE, FEMALE, OTHERS
+  }
+   enum EmployeeType {
+    TEACHER, STAFF
+  }
+   enum BookCondition {
+    FRESH, USED
+  }
+  enum ContBookLang {
+    ENGLISH, BANGLA
+  }
+
+relationship OneToOne {
+	Country{region} to Region,
+    Institute{city} to City,
+    Employee{user} to User,
+    Student{user} to User,
+    Institute{user} to User
+
+
+    
+
+}
+
+
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Country{city} to City,
+	/**
+	* A relationship
+	*/
+	Division{district} to District,
+	/**
+	* Another side of the same relationship
+	*/
+	District{upazila} to Upazila,
+    Department{employee} to Employee,
+    Department{student} to Student,
+    Designation{employee} to Employee,
+    Institute{department} to Department,
+    Session{student} to Student,
+    Upazila{student} to Student,
+    Upazila{institute} to Institute,
+    Department{session} to Session,
+    BookType{bookCategory} to BookCategory,
+    BookCategory{bookSubCategory} to BookSubCategory,
+    BookSubCategory{bookInfo} to BookInfo,
+    Institute{bookInfo} to BookInfo,
+    Publisher{bookInfo} to BookInfo,
+    BookSubCategory{digitalContent} to DigitalContent,
+    FileType{digitalContent} to DigitalContent,
+    User{digitalContent} to DigitalContent,
+    User{bookReturn} to BookReturn,
+    BookIssue{bookReturn} to BookReturn,
+    BookFineSetting{bookReturn} to BookReturn,
+    BookType{bookFineSetting} to BookFineSetting,
+    BookSubCategory{bookRequisition} to BookRequisition,
+    User{bookRequisition} to BookRequisition,
+    BookInfo{bookIssue} to BookIssue,
+    User{bookIssue} to BookIssue,
+    BookInfo{edition} to Edition
+
+
+
+
+
+}
+
+
+// Set pagination options
+paginate Publisher, BookType, FileType, BookInfo, DigitalContent, BookIssue, BookRequisition, Edition, BookReturn, BookFineSetting, BookCategory, BookSubCategory, Region, Country, City, Division, District, Upazila, Institute, Employee, Student, Department, Session, Designation with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+// Set an angular suffix
+angularSuffix * with mySuffix

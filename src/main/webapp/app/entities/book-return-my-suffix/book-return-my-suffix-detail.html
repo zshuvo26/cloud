@@ -1,0 +1,83 @@
+
+<div>
+    <h2><span data-translate="cloudApp.bookReturn.detail.title">Book Return</span> {{vm.bookReturn.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cloudApp.bookReturn.receivedStatus">Received Status</span></dt>
+        <dd>
+            <span>{{vm.bookReturn.receivedStatus}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookReturn.totalFine">Total Fine</span></dt>
+        <dd>
+            <span>{{vm.bookReturn.totalFine}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookReturn.fineDeposit">Fine Deposit</span></dt>
+        <dd>
+            <span>{{vm.bookReturn.fineDeposit}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookReturn.remissionStatus">Remission Status</span></dt>
+        <dd>
+            <span>{{vm.bookReturn.remissionStatus}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookReturn.compensation">Compensation</span></dt>
+        <dd>
+            <span>{{vm.bookReturn.compensation}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookReturn.compensationDeposit">Compensation Deposit</span></dt>
+        <dd>
+            <span>{{vm.bookReturn.compensationDeposit}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookReturn.compensationFineDeposit">Compensation Fine Deposit</span></dt>
+        <dd>
+            <span>{{vm.bookReturn.compensationFineDeposit}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookReturn.remissionCompensationStatus">Remission Compensation Status</span></dt>
+        <dd>
+            <span>{{vm.bookReturn.remissionCompensationStatus}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookReturn.cfFineStatus">Cf Fine Status</span></dt>
+        <dd>
+            <span>{{vm.bookReturn.cfFineStatus}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookReturn.cfCompensationStatus">Cf Compensation Status</span></dt>
+        <dd>
+            <span>{{vm.bookReturn.cfCompensationStatus}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookReturn.createDate">Create Date</span></dt>
+        <dd>
+            <span>{{vm.bookReturn.createDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookReturn.updateDate">Update Date</span></dt>
+        <dd>
+            <span>{{vm.bookReturn.updateDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookReturn.createBy">Create By</span></dt>
+        <dd>
+            <span>{{vm.bookReturn.createBy}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookReturn.updateBy">Update By</span></dt>
+        <dd>
+            <span>{{vm.bookReturn.updateBy}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookReturn.bookIssue">Book Issue</span></dt>
+        <dd>
+            <a ui-sref="book-issue-my-suffix-detail({id:vm.bookReturn.bookIssueId})">{{vm.bookReturn.bookIssueId}}</a>
+        </dd>
+        <dt><span data-translate="cloudApp.bookReturn.bookFineSetting">Book Fine Setting</span></dt>
+        <dd>
+            <a ui-sref="book-fine-setting-my-suffix-detail({id:vm.bookReturn.bookFineSettingId})">{{vm.bookReturn.bookFineSettingId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="book-return-my-suffix-detail.edit({id:vm.bookReturn.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

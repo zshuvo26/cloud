@@ -1,0 +1,94 @@
+<div>
+    <h2 data-translate="cloudApp.bookReturn.home.title">Book Returns</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="book-return-my-suffix.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="cloudApp.bookReturn.home.createLabel">
+                        Create new Book Return
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="receivedStatus"><span data-translate="cloudApp.bookReturn.receivedStatus">Received Status</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="totalFine"><span data-translate="cloudApp.bookReturn.totalFine">Total Fine</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fineDeposit"><span data-translate="cloudApp.bookReturn.fineDeposit">Fine Deposit</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="remissionStatus"><span data-translate="cloudApp.bookReturn.remissionStatus">Remission Status</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="compensation"><span data-translate="cloudApp.bookReturn.compensation">Compensation</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="compensationDeposit"><span data-translate="cloudApp.bookReturn.compensationDeposit">Compensation Deposit</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="compensationFineDeposit"><span data-translate="cloudApp.bookReturn.compensationFineDeposit">Compensation Fine Deposit</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="remissionCompensationStatus"><span data-translate="cloudApp.bookReturn.remissionCompensationStatus">Remission Compensation Status</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cfFineStatus"><span data-translate="cloudApp.bookReturn.cfFineStatus">Cf Fine Status</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cfCompensationStatus"><span data-translate="cloudApp.bookReturn.cfCompensationStatus">Cf Compensation Status</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="createDate"><span data-translate="cloudApp.bookReturn.createDate">Create Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="updateDate"><span data-translate="cloudApp.bookReturn.updateDate">Update Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="createBy"><span data-translate="cloudApp.bookReturn.createBy">Create By</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="updateBy"><span data-translate="cloudApp.bookReturn.updateBy">Update By</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bookIssueId"><span data-translate="cloudApp.bookReturn.bookIssue">Book Issue</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bookFineSettingId"><span data-translate="cloudApp.bookReturn.bookFineSetting">Book Fine Setting</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="bookReturn in vm.bookReturns track by bookReturn.id">
+                    <td><a ui-sref="book-return-my-suffix-detail({id:bookReturn.id})">{{bookReturn.id}}</a></td>
+                    <td>{{bookReturn.receivedStatus}}</td>
+                    <td>{{bookReturn.totalFine}}</td>
+                    <td>{{bookReturn.fineDeposit}}</td>
+                    <td>{{bookReturn.remissionStatus}}</td>
+                    <td>{{bookReturn.compensation}}</td>
+                    <td>{{bookReturn.compensationDeposit}}</td>
+                    <td>{{bookReturn.compensationFineDeposit}}</td>
+                    <td>{{bookReturn.remissionCompensationStatus}}</td>
+                    <td>{{bookReturn.cfFineStatus}}</td>
+                    <td>{{bookReturn.cfCompensationStatus}}</td>
+                        <td>{{bookReturn.createDate | date:'mediumDate'}}</td>
+                        <td>{{bookReturn.updateDate | date:'mediumDate'}}</td>
+                    <td>{{bookReturn.createBy}}</td>
+                    <td>{{bookReturn.updateBy}}</td>
+                    <td>
+                        <a ui-sref="book-issue-my-suffix-detail({id:bookReturn.bookIssueId})">{{bookReturn.bookIssueId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="book-fine-setting-my-suffix-detail({id:bookReturn.bookFineSettingId})">{{bookReturn.bookFineSettingId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="book-return-my-suffix-detail({id:bookReturn.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="book-return-my-suffix.edit({id:bookReturn.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="book-return-my-suffix.delete({id:bookReturn.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

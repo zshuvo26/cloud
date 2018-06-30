@@ -1,0 +1,100 @@
+<div>
+    <h2 data-translate="cloudApp.digitalContent.home.title">Digital Contents</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="digital-content-my-suffix.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="cloudApp.digitalContent.home.createLabel">
+                        Create new Digital Content
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="accessionNo"><span data-translate="cloudApp.digitalContent.accessionNo">Accession No</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="title"><span data-translate="cloudApp.digitalContent.title">Title</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="isbnNo"><span data-translate="cloudApp.digitalContent.isbnNo">Isbn No</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="authorName"><span data-translate="cloudApp.digitalContent.authorName">Author Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="coverPhoto"><span data-translate="cloudApp.digitalContent.coverPhoto">Cover Photo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="coverPhotoType"><span data-translate="cloudApp.digitalContent.coverPhotoType">Cover Photo Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="coverPhotoName"><span data-translate="cloudApp.digitalContent.coverPhotoName">Cover Photo Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="content"><span data-translate="cloudApp.digitalContent.content">Content</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="contentType"><span data-translate="cloudApp.digitalContent.contentType">Content Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="contentName"><span data-translate="cloudApp.digitalContent.contentName">Content Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="createDate"><span data-translate="cloudApp.digitalContent.createDate">Create Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="updateDate"><span data-translate="cloudApp.digitalContent.updateDate">Update Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="createBy"><span data-translate="cloudApp.digitalContent.createBy">Create By</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="updateBy"><span data-translate="cloudApp.digitalContent.updateBy">Update By</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bookSubCategoryId"><span data-translate="cloudApp.digitalContent.bookSubCategory">Book Sub Category</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fileTypeId"><span data-translate="cloudApp.digitalContent.fileType">File Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="digitalContent in vm.digitalContents track by digitalContent.id">
+                    <td><a ui-sref="digital-content-my-suffix-detail({id:digitalContent.id})">{{digitalContent.id}}</a></td>
+                    <td>{{digitalContent.accessionNo}}</td>
+                    <td>{{digitalContent.title}}</td>
+                    <td>{{digitalContent.isbnNo}}</td>
+                    <td>{{digitalContent.authorName}}</td>
+                    <td>
+                        <a ng-if="digitalContent.coverPhoto" ng-click="vm.openFile(digitalContent.coverPhotoContentType, digitalContent.coverPhoto)" data-translate="entity.action.open">open</a>
+                        <span ng-if="digitalContent.coverPhoto">{{digitalContent.coverPhotoContentType}}, {{vm.byteSize(digitalContent.coverPhoto)}}</span>
+                    </td>
+                    <td>{{digitalContent.coverPhotoType}}</td>
+                    <td>{{digitalContent.coverPhotoName}}</td>
+                    <td>
+                        <a ng-if="digitalContent.content" ng-click="vm.openFile(digitalContent.contentContentType, digitalContent.content)" data-translate="entity.action.open">open</a>
+                        <span ng-if="digitalContent.content">{{digitalContent.contentContentType}}, {{vm.byteSize(digitalContent.content)}}</span>
+                    </td>
+                    <td>{{digitalContent.contentType}}</td>
+                    <td>{{digitalContent.contentName}}</td>
+                        <td>{{digitalContent.createDate | date:'mediumDate'}}</td>
+                        <td>{{digitalContent.updateDate | date:'mediumDate'}}</td>
+                    <td>{{digitalContent.createBy}}</td>
+                    <td>{{digitalContent.updateBy}}</td>
+                    <td>
+                        <a ui-sref="book-sub-category-my-suffix-detail({id:digitalContent.bookSubCategoryId})">{{digitalContent.bookSubCategoryId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="file-type-my-suffix-detail({id:digitalContent.fileTypeId})">{{digitalContent.fileTypeId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="digital-content-my-suffix-detail({id:digitalContent.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="digital-content-my-suffix.edit({id:digitalContent.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="digital-content-my-suffix.delete({id:digitalContent.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

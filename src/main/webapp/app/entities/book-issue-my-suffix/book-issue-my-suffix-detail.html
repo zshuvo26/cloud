@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span data-translate="cloudApp.bookIssue.detail.title">Book Issue</span> {{vm.bookIssue.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cloudApp.bookIssue.noOfCopies">No Of Copies</span></dt>
+        <dd>
+            <span>{{vm.bookIssue.noOfCopies}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookIssue.returnDate">Return Date</span></dt>
+        <dd>
+            <span>{{vm.bookIssue.returnDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookIssue.createDate">Create Date</span></dt>
+        <dd>
+            <span>{{vm.bookIssue.createDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookIssue.updateDate">Update Date</span></dt>
+        <dd>
+            <span>{{vm.bookIssue.updateDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookIssue.createBy">Create By</span></dt>
+        <dd>
+            <span>{{vm.bookIssue.createBy}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookIssue.updateBy">Update By</span></dt>
+        <dd>
+            <span>{{vm.bookIssue.updateBy}}</span>
+        </dd>
+        <dt><span data-translate="cloudApp.bookIssue.bookInfo">Book Info</span></dt>
+        <dd>
+            <a ui-sref="book-info-my-suffix-detail({id:vm.bookIssue.bookInfoId})">{{vm.bookIssue.bookInfoId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="book-issue-my-suffix-detail.edit({id:vm.bookIssue.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

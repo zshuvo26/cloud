@@ -101,6 +101,18 @@ public class StudentResourceIntTest {
     private static final Gender DEFAULT_GENDER = Gender.MALE;
     private static final Gender UPDATED_GENDER = Gender.FEMALE;
 
+    private static final LocalDate DEFAULT_CREATE_DATE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_CREATE_DATE = LocalDate.now(ZoneId.systemDefault());
+
+    private static final LocalDate DEFAULT_UPDATE_DATE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_UPDATE_DATE = LocalDate.now(ZoneId.systemDefault());
+
+    private static final Integer DEFAULT_CREATE_BY = 1;
+    private static final Integer UPDATED_CREATE_BY = 2;
+
+    private static final Integer DEFAULT_UPDATE_BY = 1;
+    private static final Integer UPDATED_UPDATE_BY = 2;
+
     @Autowired
     private StudentRepository studentRepository;
 
@@ -165,7 +177,11 @@ public class StudentResourceIntTest {
             .dob(DEFAULT_DOB)
             .nid(DEFAULT_NID)
             .birthCertNo(DEFAULT_BIRTH_CERT_NO)
-            .gender(DEFAULT_GENDER);
+            .gender(DEFAULT_GENDER)
+            .createDate(DEFAULT_CREATE_DATE)
+            .updateDate(DEFAULT_UPDATE_DATE)
+            .createBy(DEFAULT_CREATE_BY)
+            .updateBy(DEFAULT_UPDATE_BY);
         return student;
     }
 
@@ -209,6 +225,10 @@ public class StudentResourceIntTest {
         assertThat(testStudent.getNid()).isEqualTo(DEFAULT_NID);
         assertThat(testStudent.getBirthCertNo()).isEqualTo(DEFAULT_BIRTH_CERT_NO);
         assertThat(testStudent.getGender()).isEqualTo(DEFAULT_GENDER);
+        assertThat(testStudent.getCreateDate()).isEqualTo(DEFAULT_CREATE_DATE);
+        assertThat(testStudent.getUpdateDate()).isEqualTo(DEFAULT_UPDATE_DATE);
+        assertThat(testStudent.getCreateBy()).isEqualTo(DEFAULT_CREATE_BY);
+        assertThat(testStudent.getUpdateBy()).isEqualTo(DEFAULT_UPDATE_BY);
     }
 
     @Test
@@ -317,7 +337,11 @@ public class StudentResourceIntTest {
             .andExpect(jsonPath("$.[*].dob").value(hasItem(DEFAULT_DOB.toString())))
             .andExpect(jsonPath("$.[*].nid").value(hasItem(DEFAULT_NID.toString())))
             .andExpect(jsonPath("$.[*].birthCertNo").value(hasItem(DEFAULT_BIRTH_CERT_NO.toString())))
-            .andExpect(jsonPath("$.[*].gender").value(hasItem(DEFAULT_GENDER.toString())));
+            .andExpect(jsonPath("$.[*].gender").value(hasItem(DEFAULT_GENDER.toString())))
+            .andExpect(jsonPath("$.[*].createDate").value(hasItem(DEFAULT_CREATE_DATE.toString())))
+            .andExpect(jsonPath("$.[*].updateDate").value(hasItem(DEFAULT_UPDATE_DATE.toString())))
+            .andExpect(jsonPath("$.[*].createBy").value(hasItem(DEFAULT_CREATE_BY)))
+            .andExpect(jsonPath("$.[*].updateBy").value(hasItem(DEFAULT_UPDATE_BY)));
     }
 
     @Test
@@ -349,7 +373,11 @@ public class StudentResourceIntTest {
             .andExpect(jsonPath("$.dob").value(DEFAULT_DOB.toString()))
             .andExpect(jsonPath("$.nid").value(DEFAULT_NID.toString()))
             .andExpect(jsonPath("$.birthCertNo").value(DEFAULT_BIRTH_CERT_NO.toString()))
-            .andExpect(jsonPath("$.gender").value(DEFAULT_GENDER.toString()));
+            .andExpect(jsonPath("$.gender").value(DEFAULT_GENDER.toString()))
+            .andExpect(jsonPath("$.createDate").value(DEFAULT_CREATE_DATE.toString()))
+            .andExpect(jsonPath("$.updateDate").value(DEFAULT_UPDATE_DATE.toString()))
+            .andExpect(jsonPath("$.createBy").value(DEFAULT_CREATE_BY))
+            .andExpect(jsonPath("$.updateBy").value(DEFAULT_UPDATE_BY));
     }
 
     @Test
@@ -390,7 +418,11 @@ public class StudentResourceIntTest {
             .dob(UPDATED_DOB)
             .nid(UPDATED_NID)
             .birthCertNo(UPDATED_BIRTH_CERT_NO)
-            .gender(UPDATED_GENDER);
+            .gender(UPDATED_GENDER)
+            .createDate(UPDATED_CREATE_DATE)
+            .updateDate(UPDATED_UPDATE_DATE)
+            .createBy(UPDATED_CREATE_BY)
+            .updateBy(UPDATED_UPDATE_BY);
         StudentDTO studentDTO = studentMapper.toDto(updatedStudent);
 
         restStudentMockMvc.perform(put("/api/students")
@@ -421,6 +453,10 @@ public class StudentResourceIntTest {
         assertThat(testStudent.getNid()).isEqualTo(UPDATED_NID);
         assertThat(testStudent.getBirthCertNo()).isEqualTo(UPDATED_BIRTH_CERT_NO);
         assertThat(testStudent.getGender()).isEqualTo(UPDATED_GENDER);
+        assertThat(testStudent.getCreateDate()).isEqualTo(UPDATED_CREATE_DATE);
+        assertThat(testStudent.getUpdateDate()).isEqualTo(UPDATED_UPDATE_DATE);
+        assertThat(testStudent.getCreateBy()).isEqualTo(UPDATED_CREATE_BY);
+        assertThat(testStudent.getUpdateBy()).isEqualTo(UPDATED_UPDATE_BY);
     }
 
     @Test

@@ -1,0 +1,82 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "bookIssue",
+            "otherEntityName": "bookIssue",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "bookFineSetting",
+            "otherEntityName": "bookFineSetting",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "receivedStatus",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "totalFine",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fineDeposit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "remissionStatus",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "compensation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "compensationDeposit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "compensationFineDeposit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "remissionCompensationStatus",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "cfFineStatus",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "cfCompensationStatus",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "createDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "updateDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "createBy",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "updateBy",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20180629232758",
+    "entityTableName": "book_return",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

@@ -85,6 +85,18 @@ public class Employee implements Serializable {
     @Column(name = "employee_type")
     private EmployeeType employeeType;
 
+    @Column(name = "create_date")
+    private LocalDate createDate;
+
+    @Column(name = "update_date")
+    private LocalDate updateDate;
+
+    @Column(name = "create_by")
+    private Integer createBy;
+
+    @Column(name = "update_by")
+    private Integer updateBy;
+
     @ManyToOne
     private Department department;
 
@@ -325,6 +337,58 @@ public class Employee implements Serializable {
         this.employeeType = employeeType;
     }
 
+    public LocalDate getCreateDate() {
+        return createDate;
+    }
+
+    public Employee createDate(LocalDate createDate) {
+        this.createDate = createDate;
+        return this;
+    }
+
+    public void setCreateDate(LocalDate createDate) {
+        this.createDate = createDate;
+    }
+
+    public LocalDate getUpdateDate() {
+        return updateDate;
+    }
+
+    public Employee updateDate(LocalDate updateDate) {
+        this.updateDate = updateDate;
+        return this;
+    }
+
+    public void setUpdateDate(LocalDate updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    public Integer getCreateBy() {
+        return createBy;
+    }
+
+    public Employee createBy(Integer createBy) {
+        this.createBy = createBy;
+        return this;
+    }
+
+    public void setCreateBy(Integer createBy) {
+        this.createBy = createBy;
+    }
+
+    public Integer getUpdateBy() {
+        return updateBy;
+    }
+
+    public Employee updateBy(Integer updateBy) {
+        this.updateBy = updateBy;
+        return this;
+    }
+
+    public void setUpdateBy(Integer updateBy) {
+        this.updateBy = updateBy;
+    }
+
     public Department getDepartment() {
         return department;
     }
@@ -406,6 +470,10 @@ public class Employee implements Serializable {
             ", nid='" + getNid() + "'" +
             ", gender='" + getGender() + "'" +
             ", employeeType='" + getEmployeeType() + "'" +
+            ", createDate='" + getCreateDate() + "'" +
+            ", updateDate='" + getUpdateDate() + "'" +
+            ", createBy=" + getCreateBy() +
+            ", updateBy=" + getUpdateBy() +
             "}";
     }
 }

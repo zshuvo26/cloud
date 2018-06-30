@@ -96,6 +96,18 @@ public class EmployeeResourceIntTest {
     private static final EmployeeType DEFAULT_EMPLOYEE_TYPE = EmployeeType.TEACHER;
     private static final EmployeeType UPDATED_EMPLOYEE_TYPE = EmployeeType.STAFF;
 
+    private static final LocalDate DEFAULT_CREATE_DATE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_CREATE_DATE = LocalDate.now(ZoneId.systemDefault());
+
+    private static final LocalDate DEFAULT_UPDATE_DATE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_UPDATE_DATE = LocalDate.now(ZoneId.systemDefault());
+
+    private static final Integer DEFAULT_CREATE_BY = 1;
+    private static final Integer UPDATED_CREATE_BY = 2;
+
+    private static final Integer DEFAULT_UPDATE_BY = 1;
+    private static final Integer UPDATED_UPDATE_BY = 2;
+
     @Autowired
     private EmployeeRepository employeeRepository;
 
@@ -158,7 +170,11 @@ public class EmployeeResourceIntTest {
             .dob(DEFAULT_DOB)
             .nid(DEFAULT_NID)
             .gender(DEFAULT_GENDER)
-            .employeeType(DEFAULT_EMPLOYEE_TYPE);
+            .employeeType(DEFAULT_EMPLOYEE_TYPE)
+            .createDate(DEFAULT_CREATE_DATE)
+            .updateDate(DEFAULT_UPDATE_DATE)
+            .createBy(DEFAULT_CREATE_BY)
+            .updateBy(DEFAULT_UPDATE_BY);
         return employee;
     }
 
@@ -200,6 +216,10 @@ public class EmployeeResourceIntTest {
         assertThat(testEmployee.getNid()).isEqualTo(DEFAULT_NID);
         assertThat(testEmployee.getGender()).isEqualTo(DEFAULT_GENDER);
         assertThat(testEmployee.getEmployeeType()).isEqualTo(DEFAULT_EMPLOYEE_TYPE);
+        assertThat(testEmployee.getCreateDate()).isEqualTo(DEFAULT_CREATE_DATE);
+        assertThat(testEmployee.getUpdateDate()).isEqualTo(DEFAULT_UPDATE_DATE);
+        assertThat(testEmployee.getCreateBy()).isEqualTo(DEFAULT_CREATE_BY);
+        assertThat(testEmployee.getUpdateBy()).isEqualTo(DEFAULT_UPDATE_BY);
     }
 
     @Test
@@ -287,7 +307,11 @@ public class EmployeeResourceIntTest {
             .andExpect(jsonPath("$.[*].dob").value(hasItem(DEFAULT_DOB.toString())))
             .andExpect(jsonPath("$.[*].nid").value(hasItem(DEFAULT_NID.toString())))
             .andExpect(jsonPath("$.[*].gender").value(hasItem(DEFAULT_GENDER.toString())))
-            .andExpect(jsonPath("$.[*].employeeType").value(hasItem(DEFAULT_EMPLOYEE_TYPE.toString())));
+            .andExpect(jsonPath("$.[*].employeeType").value(hasItem(DEFAULT_EMPLOYEE_TYPE.toString())))
+            .andExpect(jsonPath("$.[*].createDate").value(hasItem(DEFAULT_CREATE_DATE.toString())))
+            .andExpect(jsonPath("$.[*].updateDate").value(hasItem(DEFAULT_UPDATE_DATE.toString())))
+            .andExpect(jsonPath("$.[*].createBy").value(hasItem(DEFAULT_CREATE_BY)))
+            .andExpect(jsonPath("$.[*].updateBy").value(hasItem(DEFAULT_UPDATE_BY)));
     }
 
     @Test
@@ -317,7 +341,11 @@ public class EmployeeResourceIntTest {
             .andExpect(jsonPath("$.dob").value(DEFAULT_DOB.toString()))
             .andExpect(jsonPath("$.nid").value(DEFAULT_NID.toString()))
             .andExpect(jsonPath("$.gender").value(DEFAULT_GENDER.toString()))
-            .andExpect(jsonPath("$.employeeType").value(DEFAULT_EMPLOYEE_TYPE.toString()));
+            .andExpect(jsonPath("$.employeeType").value(DEFAULT_EMPLOYEE_TYPE.toString()))
+            .andExpect(jsonPath("$.createDate").value(DEFAULT_CREATE_DATE.toString()))
+            .andExpect(jsonPath("$.updateDate").value(DEFAULT_UPDATE_DATE.toString()))
+            .andExpect(jsonPath("$.createBy").value(DEFAULT_CREATE_BY))
+            .andExpect(jsonPath("$.updateBy").value(DEFAULT_UPDATE_BY));
     }
 
     @Test
@@ -356,7 +384,11 @@ public class EmployeeResourceIntTest {
             .dob(UPDATED_DOB)
             .nid(UPDATED_NID)
             .gender(UPDATED_GENDER)
-            .employeeType(UPDATED_EMPLOYEE_TYPE);
+            .employeeType(UPDATED_EMPLOYEE_TYPE)
+            .createDate(UPDATED_CREATE_DATE)
+            .updateDate(UPDATED_UPDATE_DATE)
+            .createBy(UPDATED_CREATE_BY)
+            .updateBy(UPDATED_UPDATE_BY);
         EmployeeDTO employeeDTO = employeeMapper.toDto(updatedEmployee);
 
         restEmployeeMockMvc.perform(put("/api/employees")
@@ -385,6 +417,10 @@ public class EmployeeResourceIntTest {
         assertThat(testEmployee.getNid()).isEqualTo(UPDATED_NID);
         assertThat(testEmployee.getGender()).isEqualTo(UPDATED_GENDER);
         assertThat(testEmployee.getEmployeeType()).isEqualTo(UPDATED_EMPLOYEE_TYPE);
+        assertThat(testEmployee.getCreateDate()).isEqualTo(UPDATED_CREATE_DATE);
+        assertThat(testEmployee.getUpdateDate()).isEqualTo(UPDATED_UPDATE_DATE);
+        assertThat(testEmployee.getCreateBy()).isEqualTo(UPDATED_CREATE_BY);
+        assertThat(testEmployee.getUpdateBy()).isEqualTo(UPDATED_UPDATE_BY);
     }
 
     @Test

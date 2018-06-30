@@ -89,6 +89,18 @@ public class Student implements Serializable {
     @Column(name = "gender")
     private Gender gender;
 
+    @Column(name = "create_date")
+    private LocalDate createDate;
+
+    @Column(name = "update_date")
+    private LocalDate updateDate;
+
+    @Column(name = "create_by")
+    private Integer createBy;
+
+    @Column(name = "update_by")
+    private Integer updateBy;
+
     @ManyToOne
     private Upazila upazila;
 
@@ -358,6 +370,58 @@ public class Student implements Serializable {
         this.gender = gender;
     }
 
+    public LocalDate getCreateDate() {
+        return createDate;
+    }
+
+    public Student createDate(LocalDate createDate) {
+        this.createDate = createDate;
+        return this;
+    }
+
+    public void setCreateDate(LocalDate createDate) {
+        this.createDate = createDate;
+    }
+
+    public LocalDate getUpdateDate() {
+        return updateDate;
+    }
+
+    public Student updateDate(LocalDate updateDate) {
+        this.updateDate = updateDate;
+        return this;
+    }
+
+    public void setUpdateDate(LocalDate updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    public Integer getCreateBy() {
+        return createBy;
+    }
+
+    public Student createBy(Integer createBy) {
+        this.createBy = createBy;
+        return this;
+    }
+
+    public void setCreateBy(Integer createBy) {
+        this.createBy = createBy;
+    }
+
+    public Integer getUpdateBy() {
+        return updateBy;
+    }
+
+    public Student updateBy(Integer updateBy) {
+        this.updateBy = updateBy;
+        return this;
+    }
+
+    public void setUpdateBy(Integer updateBy) {
+        this.updateBy = updateBy;
+    }
+
     public Upazila getUpazila() {
         return upazila;
     }
@@ -454,6 +518,10 @@ public class Student implements Serializable {
             ", nid='" + getNid() + "'" +
             ", birthCertNo='" + getBirthCertNo() + "'" +
             ", gender='" + getGender() + "'" +
+            ", createDate='" + getCreateDate() + "'" +
+            ", updateDate='" + getUpdateDate() + "'" +
+            ", createBy=" + getCreateBy() +
+            ", updateBy=" + getUpdateBy() +
             "}";
     }
 }

@@ -1,0 +1,50 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "bookReturn",
+            "otherEntityName": "bookReturn",
+            "otherEntityRelationshipName": "bookFineSetting"
+        },
+        {
+            "relationshipName": "bookType",
+            "otherEntityName": "bookType",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "maxDayForStaff",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "maxDayForStudent",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "finePerDayForSatff",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "finePerDayForStudent",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "maxBooksForStaff",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "maxBooksForStudnt",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180629232759",
+    "entityTableName": "book_fine_setting",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

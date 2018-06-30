@@ -1,0 +1,29 @@
+
+{
+    "cloudApp": {
+        "bookFineSetting" : {
+            "home": {
+                "title": "Book Fine Settings",
+                "createLabel": "Create a new Book Fine Setting",
+                "createOrEditLabel": "Create or edit a Book Fine Setting"
+            },
+            "created": "A new Book Fine Setting is created with identifier {{ param }}",
+            "updated": "A Book Fine Setting is updated with identifier {{ param }}",
+            "deleted": "A Book Fine Setting is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Book Fine Setting {{ id }}?"
+            },
+            "detail": {
+                "title": "Book Fine Setting"
+            },
+            "maxDayForStaff": "Max Day For Staff",
+            "maxDayForStudent": "Max Day For Student",
+            "finePerDayForSatff": "Fine Per Day For Satff",
+            "finePerDayForStudent": "Fine Per Day For Student",
+            "maxBooksForStaff": "Max Books For Staff",
+            "maxBooksForStudnt": "Max Books For Studnt",
+            "bookReturn": "Book Return",
+            "bookType": "Book Type"
+        }
+    }
+}

@@ -1,17 +1,19 @@
 package cloud.domain;
 
-import cloud.domain.enumeration.InstituteType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
+import java.util.Objects;
+
+import cloud.domain.enumeration.InstituteType;
 
 /**
  * A Institute.
@@ -51,7 +53,7 @@ public class Institute implements Serializable {
     private Upazila upazila;
 
     @OneToOne
-    @JoinColumn(unique = false)
+    @JoinColumn(unique = true)
     private City city;
 
     @OneToOne
@@ -62,6 +64,11 @@ public class Institute implements Serializable {
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Department> departments = new HashSet<>();
+
+    @OneToMany(mappedBy = "institute")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<BookInfo> bookInfos = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -212,6 +219,31 @@ public class Institute implements Serializable {
 
     public void setDepartments(Set<Department> departments) {
         this.departments = departments;
+    }
+
+    public Set<BookInfo> getBookInfos() {
+        return bookInfos;
+    }
+
+    public Institute bookInfos(Set<BookInfo> bookInfos) {
+        this.bookInfos = bookInfos;
+        return this;
+    }
+
+    public Institute addBookInfo(BookInfo bookInfo) {
+        this.bookInfos.add(bookInfo);
+        bookInfo.setInstitute(this);
+        return this;
+    }
+
+    public Institute removeBookInfo(BookInfo bookInfo) {
+        this.bookInfos.remove(bookInfo);
+        bookInfo.setInstitute(null);
+        return this;
+    }
+
+    public void setBookInfos(Set<BookInfo> bookInfos) {
+        this.bookInfos = bookInfos;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

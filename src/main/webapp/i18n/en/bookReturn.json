@@ -1,0 +1,37 @@
+
+{
+    "cloudApp": {
+        "bookReturn" : {
+            "home": {
+                "title": "Book Returns",
+                "createLabel": "Create a new Book Return",
+                "createOrEditLabel": "Create or edit a Book Return"
+            },
+            "created": "A new Book Return is created with identifier {{ param }}",
+            "updated": "A Book Return is updated with identifier {{ param }}",
+            "deleted": "A Book Return is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Book Return {{ id }}?"
+            },
+            "detail": {
+                "title": "Book Return"
+            },
+            "receivedStatus": "Received Status",
+            "totalFine": "Total Fine",
+            "fineDeposit": "Fine Deposit",
+            "remissionStatus": "Remission Status",
+            "compensation": "Compensation",
+            "compensationDeposit": "Compensation Deposit",
+            "compensationFineDeposit": "Compensation Fine Deposit",
+            "remissionCompensationStatus": "Remission Compensation Status",
+            "cfFineStatus": "Cf Fine Status",
+            "cfCompensationStatus": "Cf Compensation Status",
+            "createDate": "Create Date",
+            "updateDate": "Update Date",
+            "createBy": "Create By",
+            "updateBy": "Update By",
+            "bookIssue": "Book Issue",
+            "bookFineSetting": "Book Fine Setting"
+        }
+    }
+}

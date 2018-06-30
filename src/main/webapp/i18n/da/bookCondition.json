@@ -1,0 +1,9 @@
+{
+    "cloudApp": {
+        "BookCondition" : {
+            "null": "",
+            "FRESH": "FRESH",
+            "USED": "USED"
+        }
+    }
+}

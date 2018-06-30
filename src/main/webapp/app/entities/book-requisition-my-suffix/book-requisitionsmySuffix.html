@@ -1,0 +1,76 @@
+<div>
+    <h2 data-translate="cloudApp.bookRequisition.home.title">Book Requisitions</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="book-requisition-my-suffix.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="cloudApp.bookRequisition.home.createLabel">
+                        Create new Book Requisition
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="title"><span data-translate="cloudApp.bookRequisition.title">Title</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="edition"><span data-translate="cloudApp.bookRequisition.edition">Edition</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="authorName"><span data-translate="cloudApp.bookRequisition.authorName">Author Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="createDate"><span data-translate="cloudApp.bookRequisition.createDate">Create Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="updateDate"><span data-translate="cloudApp.bookRequisition.updateDate">Update Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="createBy"><span data-translate="cloudApp.bookRequisition.createBy">Create By</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="updateBy"><span data-translate="cloudApp.bookRequisition.updateBy">Update By</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bookSubCategoryId"><span data-translate="cloudApp.bookRequisition.bookSubCategory">Book Sub Category</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="bookRequisition in vm.bookRequisitions track by bookRequisition.id">
+                    <td><a ui-sref="book-requisition-my-suffix-detail({id:bookRequisition.id})">{{bookRequisition.id}}</a></td>
+                    <td>{{bookRequisition.title}}</td>
+                    <td>{{bookRequisition.edition}}</td>
+                    <td>{{bookRequisition.authorName}}</td>
+                        <td>{{bookRequisition.createDate | date:'mediumDate'}}</td>
+                        <td>{{bookRequisition.updateDate | date:'mediumDate'}}</td>
+                    <td>{{bookRequisition.createBy}}</td>
+                    <td>{{bookRequisition.updateBy}}</td>
+                    <td>
+                        <a ui-sref="book-sub-category-my-suffix-detail({id:bookRequisition.bookSubCategoryId})">{{bookRequisition.bookSubCategoryId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="book-requisition-my-suffix-detail({id:bookRequisition.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="book-requisition-my-suffix.edit({id:bookRequisition.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="book-requisition-my-suffix.delete({id:bookRequisition.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

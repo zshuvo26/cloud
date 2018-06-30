@@ -1,0 +1,176 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myBookInfoLabel" data-translate="cloudApp.bookInfo.home.createOrEditLabel">Create or edit a Book Info</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.bookInfo.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.bookInfo.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookInfo.accessionNo" for="field_accessionNo">Accession No</label>
+            <input type="text" class="form-control" name="accessionNo" id="field_accessionNo"
+                    ng-model="vm.bookInfo.accessionNo"
+                    required/>
+            <div ng-show="editForm.accessionNo.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.accessionNo.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookInfo.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                    ng-model="vm.bookInfo.title"
+                    required/>
+            <div ng-show="editForm.title.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.title.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookInfo.isbnNo" for="field_isbnNo">Isbn No</label>
+            <input type="text" class="form-control" name="isbnNo" id="field_isbnNo"
+                    ng-model="vm.bookInfo.isbnNo"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookInfo.authorName" for="field_authorName">Author Name</label>
+            <input type="text" class="form-control" name="authorName" id="field_authorName"
+                    ng-model="vm.bookInfo.authorName"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookInfo.billNo" for="field_billNo">Bill No</label>
+            <input type="text" class="form-control" name="billNo" id="field_billNo"
+                    ng-model="vm.bookInfo.billNo"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookInfo.billDate" for="field_billDate">Bill Date</label>
+                <div class="input-group">
+                    <input id="field_billDate" type="text" class="form-control" name="billDate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.bookInfo.billDate" is-open="vm.datePickerOpenStatus.billDate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('billDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setCoverPhoto($file, vm.bookInfo)">
+            <label class="control-label" data-translate="cloudApp.bookInfo.coverPhoto" for="field_coverPhoto">Cover Photo</label>
+            <div>
+                <div ng-if="vm.bookInfo.coverPhoto" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.bookInfo.coverPhotoContentType, vm.bookInfo.coverPhoto)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.bookInfo.coverPhotoContentType}}, {{vm.byteSize(vm.bookInfo.coverPhoto)}}</span>
+                    <button type="button" ng-click="vm.bookInfo.coverPhoto=null;vm.bookInfo.coverPhotoContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setCoverPhoto($file, vm.bookInfo)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="coverPhoto" id="field_coverPhoto"
+                    ng-model="vm.bookInfo.coverPhoto"
+                    />
+            <input type="hidden" class="form-control" name="coverPhotoContentType" id="field_coverPhotoContentType"
+                    ng-model="vm.bookInfo.coverPhotoContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookInfo.coverPhotoType" for="field_coverPhotoType">Cover Photo Type</label>
+            <input type="text" class="form-control" name="coverPhotoType" id="field_coverPhotoType"
+                    ng-model="vm.bookInfo.coverPhotoType"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookInfo.coverPhotoName" for="field_coverPhotoName">Cover Photo Name</label>
+            <input type="text" class="form-control" name="coverPhotoName" id="field_coverPhotoName"
+                    ng-model="vm.bookInfo.coverPhotoName"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookInfo.createDate" for="field_createDate">Create Date</label>
+                <div class="input-group">
+                    <input id="field_createDate" type="text" class="form-control" name="createDate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.bookInfo.createDate" is-open="vm.datePickerOpenStatus.createDate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('createDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookInfo.updateDate" for="field_updateDate">Update Date</label>
+                <div class="input-group">
+                    <input id="field_updateDate" type="text" class="form-control" name="updateDate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.bookInfo.updateDate" is-open="vm.datePickerOpenStatus.updateDate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('updateDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookInfo.createBy" for="field_createBy">Create By</label>
+            <input type="number" class="form-control" name="createBy" id="field_createBy"
+                    ng-model="vm.bookInfo.createBy"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookInfo.bookCondition" for="field_bookCondition">Book Condition</label>
+            <select class="form-control" name="bookCondition" ng-model="vm.bookInfo.bookCondition" id="field_bookCondition">
+                <option value="FRESH" data-translate="cloudApp.BookCondition.FRESH">FRESH</option>
+                <option value="USED" data-translate="cloudApp.BookCondition.USED">USED</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookInfo.contBookLang" for="field_contBookLang">Cont Book Lang</label>
+            <select class="form-control" name="contBookLang" ng-model="vm.bookInfo.contBookLang" id="field_contBookLang">
+                <option value="ENGLISH" data-translate="cloudApp.ContBookLang.ENGLISH">ENGLISH</option>
+                <option value="BANGLA" data-translate="cloudApp.ContBookLang.BANGLA">BANGLA</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cloudApp.bookInfo.updateBy" for="field_updateBy">Update By</label>
+            <input type="number" class="form-control" name="updateBy" id="field_updateBy"
+                    ng-model="vm.bookInfo.updateBy"
+                    />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="cloudApp.bookInfo.institute" for="field_institute">Institute</label>
+            <select class="form-control" id="field_institute" name="institute" ng-model="vm.bookInfo.instituteId" ng-options="institute.id as institute.id for institute in vm.institutes"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="cloudApp.bookInfo.publisher" for="field_publisher">Publisher</label>
+            <select class="form-control" id="field_publisher" name="publisher" ng-model="vm.bookInfo.publisherId" ng-options="publisher.id as publisher.id for publisher in vm.publishers"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="cloudApp.bookInfo.bookSubCategory" for="field_bookSubCategory">Book Sub Category</label>
+            <select class="form-control" id="field_bookSubCategory" name="bookSubCategory" ng-model="vm.bookInfo.bookSubCategoryId" ng-options="bookSubCategory.id as bookSubCategory.id for bookSubCategory in vm.booksubcategories"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

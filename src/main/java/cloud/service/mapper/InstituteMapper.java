@@ -20,6 +20,7 @@ public interface InstituteMapper extends EntityMapper<InstituteDTO, Institute> {
     @Mapping(source = "cityId", target = "city")
     @Mapping(source = "userId", target = "user")
     @Mapping(target = "departments", ignore = true)
+    @Mapping(target = "bookInfos", ignore = true)
     Institute toEntity(InstituteDTO instituteDTO);
 
     default Institute fromId(Long id) {
